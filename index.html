@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laboratorio Tecnico ODV — Ancona</title>
+  <meta name="description" content="Associazione Educativa Laboratorio Tecnico ODV — attività educative per minori e sostegno alle persone con disabilità ad Ancona, dal 1985." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sky:      #5BB8F5;
+      --sky-lt:   #EAF5FD;
+      --sky-mid:  #B8DEFA;
+      --blue:     #1A6BBF;
+      --blue-dk:  #0D4A8A;
+      --red:      #E63946;
+      --red-dk:   #C1121F;
+      --sun:      #FFD166;
+      --dark:     #111827;
+      --muted:    #4B5563;
+      --white:    #FFFFFF;
+      --paypal:   #0070BA;
+      --r:        24px;
+      --r-lg:     40px;
+      --font:     'Nunito', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); color: var(--dark); background: var(--white); line-height: 1.65; overflow-x: hidden; }
+
+    /* ── STICKY DONA ── */
+    .sticky-dona {
+      position: fixed; bottom: 28px; right: 28px; z-index: 999;
+      background: var(--paypal); color: #fff;
+      border: none; border-radius: 50px;
+      padding: 14px 26px;
+      font-family: var(--font); font-size: 1rem; font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(0,112,186,.38);
+      display: flex; align-items: center; gap: 8px;
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+      animation: floatPulse 3s ease-in-out infinite;
+    }
+    .sticky-dona:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 32px rgba(0,112,186,.5); }
+    @keyframes floatPulse {
+      0%,100% { box-shadow: 0 6px 24px rgba(0,112,186,.38); }
+      50%      { box-shadow: 0 8px 32px rgba(0,112,186,.55); }
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--white); border-bottom: 2px solid var(--sky-lt);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: .9rem 2.5rem;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon {
+      width: 38px; height: 38px; background: var(--blue);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-logo-text { font-size: 1rem; font-weight: 900; color: var(--dark); line-height: 1.1; }
+    .nav-logo-text span { color: var(--blue); }
+    .nav-logo-sub { font-size: .68rem; font-weight: 600; color: var(--muted); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a { font-size: .88rem; font-weight: 700; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-btn { background: var(--red); color: #fff !important; padding: .5rem 1.3rem; border-radius: 50px; transition: background .2s !important; }
+    .nav-btn:hover { background: var(--red-dk) !important; }
+
+    /* ── HERO ── */
+    #hero {
+      background: linear-gradient(160deg, var(--blue-dk) 0%, var(--blue) 55%, var(--sky) 100%);
+      padding: 5rem 0 0; position: relative; overflow: hidden;
+      min-height: 90vh;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .hero-sun  { position: absolute; top: -80px; right: -80px; width: 420px; height: 420px; background: var(--sun); border-radius: 50%; opacity: .18; }
+    .hero-sun2 { position: absolute; top: 40px; right: 40px;   width: 260px; height: 260px; background: var(--sun); border-radius: 50%; opacity: .12; }
+    .hero-cloud { position: absolute; background: rgba(255,255,255,.12); border-radius: 50px; }
+    .hero-cloud-1 { width: 200px; height: 60px; top: 18%; left: 5%; }
+    .hero-cloud-2 { width: 140px; height: 44px; top: 30%; left: 12%; }
+    .hero-inner {
+      position: relative; z-index: 2;
+      max-width: 1100px; margin: 0 auto; width: 100%;
+      padding: 0 2.5rem;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: stretch;
+      padding-bottom: 4rem;
+    }
+    .hero-text { color: #fff; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,.18); border: 1.5px solid rgba(255,255,255,.3);
+      border-radius: 50px; padding: .35rem .9rem;
+      font-size: .78rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+      color: #fff; margin-bottom: 1.5rem;
+    }
+    .hero-title { font-size: clamp(2.2rem, 4.5vw, 3.8rem); font-weight: 900; line-height: 1.1; margin-bottom: 1.2rem; }
+    .hero-title em { font-style: normal; color: var(--sun); }
+    .hero-sub { font-size: 1.05rem; font-weight: 500; color: rgba(255,255,255,.82); max-width: 42ch; margin-bottom: 2.5rem; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-white {
+      display: inline-block; background: #fff; color: var(--blue);
+      font-family: var(--font); font-weight: 800; font-size: .9rem;
+      padding: .75rem 2rem; border-radius: 50px; text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.18); }
+    .btn-outline-w {
+      display: inline-block; background: transparent;
+      border: 2px solid rgba(255,255,255,.6); color: #fff;
+      font-family: var(--font); font-weight: 800; font-size: .9rem;
+      padding: .75rem 2rem; border-radius: 50px; text-decoration: none;
+      transition: background .2s, border-color .2s;
+    }
+    .btn-outline-w:hover { background: rgba(255,255,255,.15); border-color: #fff; }
+    .hero-visual { display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+    .hero-card {
+      background: rgba(255,255,255,.15); border: 1.5px solid rgba(255,255,255,.25);
+      border-radius: var(--r-lg); padding: 1.5rem 1.8rem;
+      backdrop-filter: blur(6px); color: #fff;
+    }
+    .hero-card-num { font-size: 2.4rem; font-weight: 900; line-height: 1; color: var(--sun); }
+    .hero-card-label { font-size: .78rem; font-weight: 700; color: rgba(255,255,255,.75); margin-top: .2rem; }
+    .hero-cards-row { display: flex; gap: 1rem; width: 100%; justify-content: flex-end; }
+
+    /* ── SECTIONS BASE ── */
+    .section-label {
+      display: inline-block; background: var(--sky-lt); color: var(--blue);
+      font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+      padding: .3rem .9rem; border-radius: 50px; margin-bottom: 1rem;
+    }
+    .section-title { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 900; line-height: 1.15; margin-bottom: 1rem; }
+    .section-intro { font-size: 1rem; font-weight: 500; color: var(--muted); max-width: 58ch; line-height: 1.8; }
+
+    /* ── CHI SIAMO ── */
+    #chi-siamo { padding: 6rem 2.5rem; }
+    .about-wrap { max-width: 1100px; margin: 0 auto; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; align-items: start; }
+    .about-text p { font-size: .97rem; font-weight: 500; color: var(--muted); line-height: 1.85; margin-bottom: 1.1rem; }
+    .about-text p strong { color: var(--dark); font-weight: 800; }
+    .about-chips { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.5rem; }
+    .chip { background: var(--sky-lt); color: var(--blue); font-size: .8rem; font-weight: 700; padding: .35rem .9rem; border-radius: 50px; }
+    .chip.red { background: #FDECEA; color: var(--red-dk); }
+    .about-meta { background: var(--sky-lt); border-radius: var(--r-lg); padding: 2rem 2.2rem; }
+    .meta-row { display: flex; flex-direction: column; padding: .9rem 0; border-bottom: 1.5px solid var(--sky-mid); gap: .2rem; }
+    .meta-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .meta-row:first-child { padding-top: 0; }
+    .meta-key { font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--blue); }
+    .meta-val { font-size: .9rem; font-weight: 700; color: var(--dark); }
+
+    /* ── ATTIVITÀ ── */
+    #attivita { background: var(--sky-lt); padding: 6rem 2.5rem; }
+    .act-wrap { max-width: 1100px; margin: 0 auto; }
+    .act-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    .act-card { background: var(--white); border-radius: var(--r-lg); padding: 2.2rem 1.8rem; transition: transform .22s, box-shadow .22s; }
+    .act-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(26,107,191,.13); }
+    .act-icon { width: 56px; height: 56px; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 1.2rem; }
+    .act-icon.blue { background: var(--sky-lt); }
+    .act-icon.red  { background: #FDECEA; }
+    .act-icon.sun  { background: #FFF8E1; }
+    .act-title { font-size: 1.1rem; font-weight: 900; margin-bottom: .6rem; color: var(--dark); }
+    .act-desc  { font-size: .88rem; font-weight: 500; color: var(--muted); line-height: 1.75; }
+
+    /* ── 5x1000 ── */
+    #cinquexmille { padding: 6rem 2.5rem; }
+    .cinque-wrap {
+      max-width: 1100px; margin: 0 auto;
+      background: linear-gradient(135deg, var(--blue-dk) 0%, var(--blue) 100%);
+      border-radius: var(--r-lg); padding: 4rem;
+      display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    .cinque-sun { position: absolute; right: -60px; top: -60px; width: 280px; height: 280px; background: var(--sun); border-radius: 50%; opacity: .15; }
+    .cinque-text .section-label { background: rgba(255,255,255,.15); color: #fff; }
+    .cinque-text .section-title { color: #fff; }
+    .cinque-text p { color: rgba(255,255,255,.78); font-size: .97rem; font-weight: 500; line-height: 1.85; }
+    .cinque-box { position: relative; background: rgba(255,255,255,.1); border: 2px solid rgba(255,255,255,.2); border-radius: var(--r); padding: 2rem; text-align: center; }
+    .cinque-box h3 { color: #fff; font-size: 1rem; font-weight: 800; margin-bottom: .3rem; }
+    .cinque-cf { font-size: 1.8rem; font-weight: 900; color: var(--sun); letter-spacing: .06em; margin: .5rem 0 1rem; background: rgba(0,0,0,.2); border-radius: var(--r); padding: .7rem 1.2rem; display: inline-block; }
+    .cinque-box p { color: rgba(255,255,255,.7); font-size: .82rem; font-weight: 600; line-height: 1.6; }
+    .btn-copy { margin-top: 1.2rem; background: var(--sun); color: var(--dark); border: none; cursor: pointer; font-family: var(--font); font-weight: 800; font-size: .85rem; padding: .65rem 1.5rem; border-radius: 50px; transition: transform .15s; }
+    .btn-copy:hover { transform: scale(1.04); }
+
+    /* ── DONA ── */
+    #dona { background: var(--sky-lt); padding: 6rem 2.5rem; }
+    .dona-wrap { max-width: 860px; margin: 0 auto; text-align: center; }
+    .dona-wrap .section-label { display: block; margin: 0 auto 1rem; width: fit-content; }
+    .dona-wrap .section-intro { margin: 0 auto 3rem; }
+    .dona-card { background: var(--white); border-radius: var(--r-lg); padding: 3rem; box-shadow: 0 8px 40px rgba(26,107,191,.10); }
+    .dona-amounts { display: grid; grid-template-columns: repeat(5, 1fr); gap: .7rem; margin-bottom: 2rem; align-items: center; }
+    .amount-btn { padding: .7rem .5rem; border: 2px solid var(--sky-mid); border-radius: var(--r); background: transparent; color: var(--blue); font-family: var(--font); font-size: 1rem; font-weight: 800; cursor: pointer; transition: all .15s; }
+    .amount-btn:hover, .amount-btn.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+    .paypal-submit { width: 100%; background: var(--paypal); color: #fff; border: none; font-family: var(--font); font-size: 1.1rem; font-weight: 900; padding: 1rem; border-radius: 50px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: background .2s, transform .15s; margin-bottom: .8rem; }
+    .paypal-submit:hover { background: #005ea6; transform: translateY(-2px); }
+    .dona-note { font-size: .78rem; font-weight: 600; color: var(--muted); }
+
+    /* ── CONTATTI ── */
+    #contatti { padding: 6rem 2.5rem; }
+    .contact-wrap { max-width: 1100px; margin: 0 auto; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; align-items: start; }
+    .contact-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-item { display: flex; gap: 1.2rem; align-items: flex-start; }
+    .contact-icon { flex-shrink: 0; width: 48px; height: 48px; background: var(--sky-lt); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+    .contact-k { font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--blue); margin-bottom: .2rem; }
+    .contact-v { font-size: .95rem; font-weight: 700; color: var(--dark); }
+    .contact-v a { color: var(--blue); text-decoration: none; }
+    .contact-v a:hover { text-decoration: underline; }
+    .contact-map { background: var(--sky-lt); border-radius: var(--r-lg); height: 280px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem; color: var(--muted); font-size: .85rem; font-weight: 600; text-align: center; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--dark); padding: 3rem 2.5rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.2rem; }
+    .footer-logo { font-size: 1rem; font-weight: 900; color: #fff; white-space: nowrap; }
+    .footer-logo span { color: var(--sky); }
+    .footer-copy { font-size: .72rem; font-weight: 600; color: rgba(255,255,255,.45); line-height: 1.6; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: .78rem; font-weight: 700; color: rgba(255,255,255,.5); text-decoration: none; }
+    .footer-links a:hover { color: #fff; }
+
+    /* ── WAVES ── */
+    .wave { display: block; width: 100%; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-inner, .about-grid, .act-grid, .cinque-wrap, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      nav { padding: .9rem 1.5rem; }
+      .nav-links { display: none; }
+      #hero { padding: 3.5rem 1.5rem 0; min-height: auto; }
+      .hero-inner { padding-bottom: 3rem; }
+      #chi-siamo, #attivita, #dona, #contatti, #cinquexmille { padding: 4rem 1.5rem; }
+      .cinque-wrap { padding: 2.5rem 1.5rem; }
+      .dona-amounts { grid-template-columns: repeat(2, 1fr); }
+      .dona-card { padding: 2rem 1.5rem; }
+      .sticky-dona { bottom: 16px; right: 16px; padding: 12px 20px; font-size: .9rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY DONA -->
+  <a class="sticky-dona" href="#dona">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    Dona ora
+  </a>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#hero">
+      <div class="nav-logo-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <div>
+        <div class="nav-logo-text">Laboratorio<span>Tecnico</span></div>
+        <div class="nav-logo-sub">ODV · Ancona</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#chi-siamo">Chi siamo</a></li>
+      <li><a href="#attivita">Attività</a></li>
+      <li><a href="#cinquexmille">5×1000</a></li>
+      <li><a href="#contatti">Contatti</a></li>
+      <li><a href="#dona" class="nav-btn">💙 Dona</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div id="hero">
+    <div class="hero-sun"></div>
+    <div class="hero-sun2"></div>
+    <div class="hero-cloud hero-cloud-1"></div>
+    <div class="hero-cloud hero-cloud-2"></div>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          ODV · Ancona · dal 1985
+        </div>
+        <h1 class="hero-title">
+          Ogni bambino<br>merita un<br><em>futuro luminoso.</em>
+        </h1>
+        <p class="hero-sub">Attività educative per minori e sostegno alle persone con disabilità. Volontari al servizio della comunità di Ancona e delle Marche dal 1985.</p>
+        <div class="hero-actions">
+          <a href="#chi-siamo" class="btn-white">Scopri chi siamo</a>
+          <a href="#dona" class="btn-outline-w">Sostienici</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+          <img
+            src="bambini.png"
+            alt="Due bambini che giocano"
+            style="width:100%;max-width:650px;border-radius:28px;display:block;"
+          />
+          <div class="hero-cards-row" style="width:100%;max-width:650px;">
+            <div class="hero-card" style="flex:1">
+              <div class="hero-card-num">ODV</div>
+              <div class="hero-card-label">Organizzazione<br>di volontariato</div>
+            </div>
+            <div class="hero-card" style="flex:1">
+              <div class="hero-card-num">1985</div>
+              <div class="hero-card-label">Anno di<br>fondazione</div>
+            </div>
+          </div>
+      </div>
+
+    </div>
+    <svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="white"/></svg>
+  </div>
+
+  <!-- CHI SIAMO -->
+  <section id="chi-siamo">
+    <div class="about-wrap">
+      <span class="section-label">Chi siamo</span>
+      <h2 class="section-title">Da 40 anni, ogni giorno,<br>per chi ne ha bisogno.</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p><strong>Laboratorio Tecnico ODV</strong> è un'associazione educativa di volontariato con sede ad Ancona, attiva dal 1° settembre 1985. In oltre quarant'anni abbiamo messo competenze e cuore al servizio dei più fragili.</p>
+          <p>Le nostre attività principali sono le <strong>attività educative rivolte ai minori</strong> e il <strong>sostegno alle persone con disabilità</strong>: laboratori, accompagnamento, supporto scolastico e iniziative di partecipazione civica.</p>
+          <p>Operiamo in conformità al <strong>Codice del Terzo Settore (D.Lgs. 117/2017)</strong> come Organizzazione di Volontariato iscritta al RUNTS. Tutta l'attività è svolta da volontari che credono nel valore della solidarietà concreta.</p>
+          <div class="about-chips">
+            <span class="chip">Educazione minori</span>
+            <span class="chip">Disabilità</span>
+            <span class="chip red">ODV</span>
+            <span class="chip">RUNTS</span>
+            <span class="chip">Ancona</span>
+          </div>
+        </div>
+        <div class="about-meta">
+          <div class="meta-row"><span class="meta-key">Denominazione</span><span class="meta-val">Associazione Educativa Laboratorio Tecnico ODV</span></div>
+          <div class="meta-row"><span class="meta-key">Codice Fiscale</span><span class="meta-val">93026570429</span></div>
+          <div class="meta-row"><span class="meta-key">Natura giuridica</span><span class="meta-val">Organizzazione di Volontariato (ODV)</span></div>
+          <div class="meta-row"><span class="meta-key">Normativa</span><span class="meta-val">D.Lgs. 117/2017 – Codice del Terzo Settore</span></div>
+          <div class="meta-row"><span class="meta-key">Sede legale</span><span class="meta-val">Via Filippo Marchetti 1, 60125 Ancona (AN)</span></div>
+          <div class="meta-row"><span class="meta-key">RUNTS</span><span class="meta-val">Sez. Organizzazioni di Volontariato · Rep. n. 80820 dal 21/11/2022 · DDS Regione Marche n. 399/2022</span></div>
+          <div class="meta-row"><span class="meta-key">Anno di fondazione</span><span class="meta-val">1° settembre 1985</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="background:white"><path d="M0,30 C480,60 960,0 1440,30 L1440,60 L0,60 Z" fill="#EAF5FD"/></svg>
+
+  <!-- ATTIVITÀ -->
+  <section id="attivita">
+    <div class="act-wrap">
+      <span class="section-label">Le nostre attività</span>
+      <h2 class="section-title">Cosa facciamo ogni giorno</h2>
+      <p class="section-intro">Da oltre quarant'anni operiamo nel territorio di Ancona con attività concrete di educazione e inclusione, aperte a tutti.</p>
+      <div class="act-grid">
+        <div class="act-card">
+          <div class="act-icon blue">📚</div>
+          <h3 class="act-title">Attività educative per minori</h3>
+          <p class="act-desc">Laboratori, supporto scolastico e attività ricreative rivolte a bambini e ragazzi, con particolare attenzione alle situazioni di fragilità e svantaggio sociale.</p>
+        </div>
+        <div class="act-card">
+          <div class="act-icon red">🤝</div>
+          <h3 class="act-title">Sostegno alle persone con disabilità</h3>
+          <p class="act-desc">Accompagnamento, attività inclusive e supporto pratico a persone con disabilità e alle loro famiglie, per favorire partecipazione e autonomia nella vita quotidiana.</p>
+        </div>
+        <div class="act-card">
+          <div class="act-icon sun">🏛️</div>
+          <h3 class="act-title">Volontariato e cittadinanza attiva</h3>
+          <p class="act-desc">Iniziative di sensibilizzazione, collaborazioni con enti pubblici e promozione della cultura del volontariato nel territorio marchigiano.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="background:#EAF5FD"><path d="M0,0 C480,60 960,0 1440,30 L1440,60 L0,60 Z" fill="white"/></svg>
+
+  <!-- 5x1000 -->
+  <section id="cinquexmille">
+    <div class="cinque-wrap">
+      <div class="cinque-sun"></div>
+      <div class="cinque-text">
+        <span class="section-label">5×1000</span>
+        <h2 class="section-title">Destinaci il tuo<br>5×1000</h2>
+        <p>Ogni anno, nella dichiarazione dei redditi, puoi destinare il tuo 5×1000 a <strong style="color:#fff">Laboratorio Tecnico ODV</strong> senza spendere nulla in più. È una quota delle tasse che lo Stato ti chiede comunque: sei tu a decidere a chi va.</p>
+        <p style="margin-top:.8rem">Scrivi il nostro codice fiscale nel riquadro <em style="color:rgba(255,255,255,.9);font-style:normal;font-weight:700">"Sostegno degli enti del Terzo Settore iscritti nel RUNTS"</em>.</p>
+      </div>
+      <div class="cinque-box">
+        <h3>Il nostro codice fiscale</h3>
+        <div class="cinque-cf">93026570429</div>
+        <p>Sezione "Volontariato e ODV"<br>della dichiarazione dei redditi</p>
+        <button class="btn-copy" onclick="copyCF()">📋 Copia il codice fiscale</button>
+      </div>
+    </div>
+  </section>
+
+  <svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="background:white"><path d="M0,30 C360,0 1080,60 1440,20 L1440,60 L0,60 Z" fill="#EAF5FD"/></svg>
+
+  <!-- DONA -->
+  <section id="dona">
+    <div class="dona-wrap">
+      <span class="section-label">Donazioni</span>
+      <h2 class="section-title">Ogni contributo cambia una vita</h2>
+      <p class="section-intro">Le nostre attività sono possibili grazie a chi crede nel valore dell'educazione e dell'inclusione. Le donazioni beneficiano delle agevolazioni fiscali previste dal Codice del Terzo Settore.</p>
+      <div class="dona-card">
+        <div class="dona-amounts">
+          <button class="amount-btn" onclick="selectAmount(this,10)">€ 10</button>
+          <button class="amount-btn active" onclick="selectAmount(this,25)">€ 25</button>
+          <button class="amount-btn" onclick="selectAmount(this,50)">€ 50</button>
+          <button class="amount-btn" onclick="selectAmount(this,100)">€ 100</button>
+          <div style="display:flex;align-items:center;border:2px solid var(--sky-mid);border-radius:var(--r);overflow:hidden;">
+            <span style="padding:.6rem .7rem;font-size:1rem;font-weight:800;color:var(--blue);background:var(--sky-lt)">€</span>
+            <input
+              id="custom-amount"
+              type="number"
+              min="1"
+              placeholder="altro"
+              oninput="setCustomAmount(this.value)"
+              style="border:none;outline:none;padding:.65rem .5rem;font-family:var(--font);font-size:.95rem;font-weight:700;color:var(--dark);width:80px;background:white"
+            />
+          </div>
+        </div>
+        <a id="paypal-link" href="https://www.paypal.com/paypalme/LabTecnico/25" target="_blank" rel="noopener" class="paypal-submit" style="text-decoration:none">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          Dona con PayPal
+        </a>
+        <p class="dona-note">🔒 Transazione sicura. Puoi donare anche senza un account PayPal.</p>
+        <div style="margin-top:1.5rem;padding:1.2rem 1.4rem;background:var(--sky-lt);border-radius:var(--r);border-left:4px solid var(--blue);text-align:left">
+          <p style="font-size:.82rem;font-weight:800;color:var(--blue);margin-bottom:.4rem">💰 Vantaggi fiscali per il donatore</p>
+          <p style="font-size:.8rem;font-weight:600;color:var(--muted);line-height:1.7;margin:0">
+            In quanto <strong style="color:var(--dark)">ODV iscritta al RUNTS</strong>, le donazioni a Laboratorio Tecnico ODV danno diritto, in alternativa, a:
+          </p>
+          <ul style="font-size:.8rem;font-weight:600;color:var(--muted);line-height:1.8;margin:.5rem 0 .5rem 1.2rem;padding:0">
+            <li><strong style="color:var(--dark)">Detrazione IRPEF del 35%</strong> dell'importo donato, fino a €30.000 annui</li>
+            <li><strong style="color:var(--dark)">Deduzione dal reddito complessivo</strong> nel limite del 10% del reddito dichiarato (max €70.000 annui)</li>
+          </ul>
+          <p style="font-size:.75rem;font-weight:600;color:var(--muted);margin:0;opacity:.75">Art. 83, D.Lgs. 117/2017 – Codice del Terzo Settore. Conservare la ricevuta della donazione.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="background:#EAF5FD"><path d="M0,40 C480,0 960,60 1440,20 L1440,60 L0,60 Z" fill="white"/></svg>
+
+  <!-- CONTATTI -->
+  <section id="contatti">
+    <div class="contact-wrap">
+      <span class="section-label">Contatti</span>
+      <h2 class="section-title">Vieni a trovarci</h2>
+      <p class="section-intro">Siamo ad Ancona e siamo sempre disponibili per chi vuole collaborare, iscriversi come volontario o semplicemente saperne di più.</p>
+      <div class="contact-grid">
+        <div class="contact-list">
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div><p class="contact-k">Sede legale</p><p class="contact-v">Via Filippo Marchetti 1<br>60125 Ancona (AN)</p></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <p class="contact-k">Telefono / WhatsApp</p>
+              <p class="contact-v">
+                <a href="tel:+393496526946">349 652 6946</a>
+                &nbsp;·&nbsp;
+                <a href="https://wa.me/393496526946" target="_blank" rel="noopener">💬 Scrivici su WhatsApp</a>
+              </p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div><p class="contact-k">Email</p><p class="contact-v"><a href="mailto:info@laboratoriotecnico.eu">info@laboratoriotecnico.eu</a></p></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🔒</div>
+            <div><p class="contact-k">PEC</p><p class="contact-v"><a href="mailto:info@pec.laboratoriotecnico.eu">info@pec.laboratoriotecnico.eu</a></p></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🌐</div>
+            <div><p class="contact-k">Sito web</p><p class="contact-v"><a href="https://laboratoriotecnico.eu">laboratoriotecnico.eu</a></p></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📄</div>
+            <div><p class="contact-k">Codice Fiscale</p><p class="contact-v">93026570429</p></div>
+          </div>
+        </div>
+        <div class="contact-map">
+          <span style="font-size:3rem">🗺️</span>
+          <p>Via Filippo Marchetti 1</p>
+          <p>60125 Ancona (AN)</p>
+          <p style="font-size:.75rem;color:var(--sky-mid);margin-top:.4rem">Puoi integrare qui una mappa Google Maps</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Laboratorio<span>Tecnico</span> ODV</div>
+      <div style="display:flex;flex-direction:column;gap:.35rem;text-align:center">
+        <p class="footer-copy">© 1985–2026 Associazione Educativa Laboratorio Tecnico ODV · Via Filippo Marchetti 1, 60125 Ancona (AN) · C.F. 93026570429</p>
+        <p class="footer-copy">Iscritta al RUNTS – Registro Unico Nazionale del Terzo Settore, sezione Organizzazioni di Volontariato, repertorio n. 80820 dal 21/11/2022, con DDS della Regione Marche n. 399/2022</p>
+      </div>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="#">Statuto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function selectAmount(btn, val) {
+      document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('custom-amount').value = '';
+      document.getElementById('paypal-link').href = 'https://www.paypal.com/paypalme/LabTecnico/' + val;
+    }
+    function setCustomAmount(rawVal) {
+      document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+      const link = document.getElementById('paypal-link');
+      const val = parseFloat(rawVal);
+      if (!isNaN(val) && isFinite(val) && val > 0 && val <= 9999) {
+        const safe = Math.round(val * 100) / 100; // max 2 decimali, nessun overflow
+        link.href = 'https://www.paypal.com/paypalme/LabTecnico/' + safe;
+      } else {
+        link.href = 'https://www.paypal.com/paypalme/LabTecnico';
+      }
+    }
+    function copyCF() {
+      navigator.clipboard.writeText('93026570429').then(() => {
+        const btn = document.querySelector('.btn-copy');
+        const orig = btn.textContent;
+        btn.textContent = '✅ Copiato!';
+        setTimeout(() => btn.textContent = orig, 2000);
+      });
+    }
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+      navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--blue)' : ''; });
+    });
+    // Cookie banner
+    (function() {
+      if (!localStorage.getItem('cookie_consent')) {
+        document.getElementById('cookie-banner').style.display = 'flex';
+      }
+    })();
+    function acceptCookies() {
+      localStorage.setItem('cookie_consent', 'accepted');
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+    function declineCookies() {
+      localStorage.setItem('cookie_consent', 'technical');
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+  </script>
+  <!-- COOKIE BANNER -->
+  <div id="cookie-banner" style="
+    display:none; position:fixed; bottom:0; left:0; right:0; z-index:9999;
+    background:#1a2a3a; color:#fff; padding:1.2rem 2rem;
+    display:flex; align-items:center; justify-content:space-between;
+    flex-wrap:wrap; gap:1rem;
+    box-shadow:0 -4px 24px rgba(0,0,0,.25);
+    font-family:'Nunito',system-ui,sans-serif;
+  ">
+    <p style="font-size:.85rem;font-weight:600;color:rgba(255,255,255,.85);margin:0;max-width:720px;line-height:1.6">
+      🍪 Questo sito utilizza solo cookie tecnici necessari al funzionamento e Google Fonts (che trasferisce l'indirizzo IP a Google LLC).
+      Non utilizziamo cookie di profilazione o analisi. Leggi la nostra
+      <a href="privacy.html" style="color:#5BB8F5;text-decoration:underline">Privacy Policy</a>.
+    </p>
+    <div style="display:flex;gap:.8rem;flex-shrink:0">
+      <button onclick="acceptCookies()" style="
+        background:#1A6BBF; color:#fff; border:none; cursor:pointer;
+        font-family:'Nunito',system-ui,sans-serif; font-size:.88rem; font-weight:800;
+        padding:.6rem 1.4rem; border-radius:50px;
+        transition:background .2s;
+      " onmouseover="this.style.background='#0D4A8A'" onmouseout="this.style.background='#1A6BBF'">
+        Ho capito
+      </button>
+      <button onclick="declineCookies()" style="
+        background:transparent; color:rgba(255,255,255,.6); border:1px solid rgba(255,255,255,.3);
+        cursor:pointer; font-family:'Nunito',system-ui,sans-serif; font-size:.88rem; font-weight:700;
+        padding:.6rem 1.4rem; border-radius:50px;
+        transition:all .2s;
+      " onmouseover="this.style.borderColor='rgba(255,255,255,.7)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,.3)';this.style.color='rgba(255,255,255,.6)'">
+        Solo tecnici
+      </button>
+    </div>
+  </div>
+
+</body>
+</html>
