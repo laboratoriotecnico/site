@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
+<head>/
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Associazione Educativa Laboratorio Tecnico ODV</title>
@@ -288,14 +288,13 @@
       .contact-form-grid { grid-template-columns:1fr; }
       .contact-form-grid [style*="grid-column:1/-1"] { grid-column:1; }
     }
-    .footer-logo { font-size: 1rem; font-weight: 900; color: #fff; }
-    .footer-logo span { color: var(--sky); }
     @media (max-width:900px) {
       .footer-inner { flex-direction: column; text-align: center; }
-      .footer-logo { display: block; line-height: 1.4; }
-      .footer-logo span { display: block; }
     }
     .footer-copy { font-size: .72rem; font-weight: 600; color: rgba(255,255,255,.45); line-height: 1.6; }
+    .mobile-br { display: none; }
+    .mobile-hide { }
+    @media (max-width:900px) { .mobile-br { display: initial; } .mobile-hide { display: none; } }
     .footer-links { display: flex; gap: 1.5rem; }
     .footer-links a { font-size: .78rem; font-weight: 700; color: rgba(255,255,255,.5); text-decoration: none; }
     .footer-links a:hover { color: #fff; }
@@ -663,10 +662,9 @@
 
   <footer>
     <div class="footer-inner" style="flex-direction:column;text-align:center;gap:1.5rem">
-      <div class="footer-logo">Associazione Educativa <span>Laboratorio Tecnico</span> ODV</div>
       <div style="display:flex;flex-direction:column;gap:.35rem;text-align:center">
-        <p class="footer-copy">© 1985–2026 Associazione Educativa Laboratorio Tecnico ODV · Via Filippo Marchetti 1, 60125 Ancona (AN) · C.F. 93026570429</p>
-        <p class="footer-copy">Iscritta al RUNTS – Registro Unico Nazionale del Terzo Settore, sezione Organizzazioni di Volontariato, repertorio n. 80820 dal 21/11/2022, con DDS della Regione Marche n. 399/2022</p>
+        <p class="footer-copy">© 1985–2026 Associazione Educativa Laboratorio Tecnico ODV<br class="mobile-br"><span class="mobile-hide"> · </span>Via Filippo Marchetti 1, 60125 Ancona (AN) · C.F. 93026570429</p>
+        <p class="footer-copy">Iscritta al Registro Unico Nazionale del Terzo Settore<br class="mobile-br"><span class="mobile-hide"> · </span>Sezione Organizzazioni di Volontariato, repertorio n. 80820 dal 21/11/2022</p>
       </div>
       <div class="footer-links">
         <a href="privacy.html">Privacy Policy</a>
