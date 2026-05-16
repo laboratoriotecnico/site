@@ -507,7 +507,7 @@
           <p style="font-size:.8rem;font-weight:600;color:var(--muted);margin-bottom:.3rem">Banca: <strong style="color:var(--dark)">Intesa Sanpaolo</strong> · Filiale Accentrata · Piazza Paolo Ferrari 10</p>
           <div style="display:flex;align-items:center;gap:.6rem;margin-top:.5rem;flex-wrap:wrap">
             <code id="iban-text" style="font-size:.85rem;font-weight:800;color:var(--dark);background:white;padding:.4rem .8rem;border-radius:8px;border:1.5px solid var(--sky-mid);letter-spacing:.04em">IT51R0306909606100000013451</code>
-            <button onclick="copyIBAN()" style="background:var(--blue);color:#fff;border:none;cursor:pointer;font-family:var(--font);font-size:.78rem;font-weight:800;padding:.4rem 1rem;border-radius:50px;white-space:nowrap">📋 Copia IBAN</button>
+            <button class="btn-copy-iban" onclick="copyIBAN()" style="background:var(--blue);color:#fff;border:none;cursor:pointer;font-family:var(--font);font-size:.78rem;font-weight:800;padding:.4rem 1rem;border-radius:50px;white-space:nowrap">📋 Copia IBAN</button>
           </div>
           <p style="font-size:.75rem;font-weight:600;color:var(--muted);margin-top:.5rem;opacity:.8">Causale: <em>Donazione liberale + il tuo codice fiscale</em></p>
         </div>
@@ -726,7 +726,7 @@
     }
     function copyIBAN() {
       navigator.clipboard.writeText('IT51R0306909606100000013451').then(() => {
-        const btn = event.target;
+        const btn = document.querySelector('.btn-copy-iban');
         const orig = btn.textContent;
         btn.textContent = '✅ Copiato!';
         setTimeout(() => btn.textContent = orig, 2000);
