@@ -288,8 +288,13 @@
       .contact-form-grid { grid-template-columns:1fr; }
       .contact-form-grid [style*="grid-column:1/-1"] { grid-column:1; }
     }
-    .footer-logo { font-size: 1rem; font-weight: 900; color: #fff; white-space: nowrap; }
+    .footer-logo { font-size: 1rem; font-weight: 900; color: #fff; }
     .footer-logo span { color: var(--sky); }
+    @media (max-width:900px) {
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-logo { display: block; line-height: 1.4; }
+      .footer-logo span { display: block; }
+    }
     .footer-copy { font-size: .72rem; font-weight: 600; color: rgba(255,255,255,.45); line-height: 1.6; }
     .footer-links { display: flex; gap: 1.5rem; }
     .footer-links a { font-size: .78rem; font-weight: 700; color: rgba(255,255,255,.5); text-decoration: none; }
@@ -657,7 +662,7 @@
   </section>
 
   <footer>
-    <div class="footer-inner">
+    <div class="footer-inner" style="flex-direction:column;text-align:center;gap:1.5rem">
       <div class="footer-logo">Associazione Educativa <span>Laboratorio Tecnico</span> ODV</div>
       <div style="display:flex;flex-direction:column;gap:.35rem;text-align:center">
         <p class="footer-copy">© 1985–2026 Associazione Educativa Laboratorio Tecnico ODV · Via Filippo Marchetti 1, 60125 Ancona (AN) · C.F. 93026570429</p>
