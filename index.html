@@ -3,12 +3,78 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Laboratorio Tecnico ODV — Ancona</title>
-  <meta name="description" content="Associazione Educativa Laboratorio Tecnico ODV — attività educative per minori e sostegno alle persone con disabilità ad Ancona, dal 1985." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <title>Associazione Educativa Laboratorio Tecnico ODV</title>
+  <meta name="description" content="Associazione Educativa Laboratorio Tecnico ODV di Ancona: attività educative per minori e sostegno alle persone con disabilità. Volontariato nelle Marche dal 1985." />
+  <meta name="keywords" content="associazione volontariato Ancona, ODV Marche, attività educative minori, sostegno disabilità Ancona, laboratorio tecnico, terzo settore Ancona" />
+  <meta name="author" content="Associazione Educativa Laboratorio Tecnico ODV" />
+  <link rel="canonical" href="https://laboratoriotecnico.eu/" />
+
+  <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://laboratoriotecnico.eu/" />
+  <meta property="og:title" content="Laboratorio Tecnico ODV — Associazione Educativa di Ancona" />
+  <meta property="og:description" content="Attività educative per minori e sostegno alle persone con disabilità. Volontariato nelle Marche dal 1985." />
+  <meta property="og:image" content="https://laboratoriotecnico.eu/bambini.png" />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:site_name" content="Associazione Educativa Laboratorio Tecnico ODV" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Associazione Educativa Laboratorio Tecnico ODV — Ancona" />
+  <meta name="twitter:description" content="Attività educative per minori e sostegno alle persone con disabilità. Volontariato nelle Marche dal 1985." />
+  <meta name="twitter:image" content="https://laboratoriotecnico.eu/bambini.png" />
+
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NGO",
+    "name": "Associazione Educativa Laboratorio Tecnico ODV",
+    "alternateName": "Associazione Educativa Laboratorio Tecnico ODV",
+    "url": "https://laboratoriotecnico.eu",
+    "logo": "https://laboratoriotecnico.eu/bambini.png",
+    "description": "Organizzazione di Volontariato che svolge attività educative per minori e sostegno alle persone con disabilità ad Ancona e nelle Marche, dal 1985.",
+    "foundingDate": "1985-09-01",
+    "taxID": "93026570429",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via Filippo Marchetti 1",
+      "postalCode": "60125",
+      "addressLocality": "Ancona",
+      "addressRegion": "AN",
+      "addressCountry": "IT"
+    },
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+393496526946",
+        "contactType": "customer service",
+        "availableLanguage": "Italian"
+      },
+      {
+        "@type": "ContactPoint",
+        "email": "info@laboratoriotecnico.eu",
+        "contactType": "customer service"
+      }
+    ],
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": "Marche"
+    },
+    "knowsAbout": ["educazione minori", "sostegno disabilità", "volontariato"]
+  }
+  </script>
+
+  <!-- Plausible Analytics (no cookie, GDPR compliant) -->
+  <script defer data-domain="laboratoriotecnico.eu" src="https://plausible.io/js/script.js"></script>
+
   <style>
+    @font-face { font-family: 'Nunito'; src: url('fonts/Nunito-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Nunito'; src: url('fonts/Nunito-SemiBold.ttf') format('truetype'); font-weight: 600; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Nunito'; src: url('fonts/Nunito-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Nunito'; src: url('fonts/Nunito-ExtraBold.ttf') format('truetype'); font-weight: 800; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Nunito'; src: url('fonts/Nunito-Black.ttf') format('truetype'); font-weight: 900; font-style: normal; font-display: swap; }
+    
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -217,7 +283,11 @@
 
     /* ── FOOTER ── */
     footer { background: var(--dark); padding: 3rem 2.5rem; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.2rem; }
+    .contact-form-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    @media (max-width:900px) {
+      .contact-form-grid { grid-template-columns:1fr; }
+      .contact-form-grid [style*="grid-column:1/-1"] { grid-column:1; }
+    }
     .footer-logo { font-size: 1rem; font-weight: 900; color: #fff; white-space: nowrap; }
     .footer-logo span { color: var(--sky); }
     .footer-copy { font-size: .72rem; font-weight: 600; color: rgba(255,255,255,.45); line-height: 1.6; }
@@ -258,8 +328,7 @@
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
       </div>
       <div>
-        <div class="nav-logo-text">Laboratorio<span>Tecnico</span></div>
-        <div class="nav-logo-sub">ODV · Ancona</div>
+        <div class="nav-logo-text">Associazione Educativa<br><span>Laboratorio Tecnico</span> ODV</div>
       </div>
     </a>
     <ul class="nav-links">
@@ -281,7 +350,7 @@
       <div class="hero-text">
         <div class="hero-badge">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-          ODV · Ancona · dal 1985
+          Volontariato per il benessere sociale
         </div>
         <h1 class="hero-title">
           Ogni bambino<br>merita un<br><em>futuro luminoso.</em>
@@ -321,25 +390,25 @@
       <h2 class="section-title">Da 40 anni, ogni giorno,<br>per chi ne ha bisogno.</h2>
       <div class="about-grid">
         <div class="about-text">
-          <p><strong>Laboratorio Tecnico ODV</strong> è un'associazione educativa di volontariato con sede ad Ancona, attiva dal 1° settembre 1985. In oltre quarant'anni abbiamo messo competenze e cuore al servizio dei più fragili.</p>
+          <p><strong>Associazione Educativa Laboratorio Tecnico ODV</strong> è un'associazione educativa di volontariato con sede ad Ancona, attiva dal 1° settembre 1985. In oltre quarant'anni abbiamo messo competenze e cuore al servizio dei più fragili.</p>
           <p>Le nostre attività principali sono le <strong>attività educative rivolte ai minori</strong> e il <strong>sostegno alle persone con disabilità</strong>: laboratori, accompagnamento, supporto scolastico e iniziative di partecipazione civica.</p>
           <p>Operiamo in conformità al <strong>Codice del Terzo Settore (D.Lgs. 117/2017)</strong> come Organizzazione di Volontariato iscritta al RUNTS. Tutta l'attività è svolta da volontari che credono nel valore della solidarietà concreta.</p>
           <div class="about-chips">
             <span class="chip">Educazione minori</span>
             <span class="chip">Disabilità</span>
-            <span class="chip red">ODV</span>
+            <span class="chip" style="background:var(--sky-lt);color:var(--blue)">ODV</span>
             <span class="chip">RUNTS</span>
-            <span class="chip">Ancona</span>
+            <span class="chip red">Ancona</span>
           </div>
         </div>
         <div class="about-meta">
           <div class="meta-row"><span class="meta-key">Denominazione</span><span class="meta-val">Associazione Educativa Laboratorio Tecnico ODV</span></div>
           <div class="meta-row"><span class="meta-key">Codice Fiscale</span><span class="meta-val">93026570429</span></div>
-          <div class="meta-row"><span class="meta-key">Natura giuridica</span><span class="meta-val">Organizzazione di Volontariato (ODV)</span></div>
+          <div class="meta-row"><span class="meta-key">Natura giuridica</span><span class="meta-val">Organizzazione di Volontariato con personalità giuridica (ODV)</span></div>
           <div class="meta-row"><span class="meta-key">Normativa</span><span class="meta-val">D.Lgs. 117/2017 – Codice del Terzo Settore</span></div>
           <div class="meta-row"><span class="meta-key">Sede legale</span><span class="meta-val">Via Filippo Marchetti 1, 60125 Ancona (AN)</span></div>
           <div class="meta-row"><span class="meta-key">RUNTS</span><span class="meta-val">Sez. Organizzazioni di Volontariato · Rep. n. 80820 dal 21/11/2022 · DDS Regione Marche n. 399/2022</span></div>
-          <div class="meta-row"><span class="meta-key">Anno di fondazione</span><span class="meta-val">1° settembre 1985</span></div>
+          <div class="meta-row"><span class="meta-key">Fondazione</span><span class="meta-val">1° settembre 1985</span></div>
         </div>
       </div>
     </div>
@@ -382,13 +451,13 @@
       <div class="cinque-text">
         <span class="section-label">5×1000</span>
         <h2 class="section-title">Destinaci il tuo<br>5×1000</h2>
-        <p>Ogni anno, nella dichiarazione dei redditi, puoi destinare il tuo 5×1000 a <strong style="color:#fff">Laboratorio Tecnico ODV</strong> senza spendere nulla in più. È una quota delle tasse che lo Stato ti chiede comunque: sei tu a decidere a chi va.</p>
+        <p>Ogni anno, nella dichiarazione dei redditi, puoi destinare il tuo 5×1000 a <strong style="color:#fff">Associazione Educativa Laboratorio Tecnico ODV</strong> senza spendere nulla in più. È una quota delle tasse che lo Stato ti chiede comunque: sei tu a decidere a chi va.</p>
         <p style="margin-top:.8rem">Scrivi il nostro codice fiscale nel riquadro <em style="color:rgba(255,255,255,.9);font-style:normal;font-weight:700">"Sostegno degli enti del Terzo Settore iscritti nel RUNTS"</em>.</p>
       </div>
       <div class="cinque-box">
         <h3>Il nostro codice fiscale</h3>
         <div class="cinque-cf">93026570429</div>
-        <p>Sezione "Volontariato e ODV"<br>della dichiarazione dei redditi</p>
+        <p>Sezione "Sostegno degli enti del Terzo Settore iscritti nel RUNTS"<br>della dichiarazione dei redditi</p>
         <button class="btn-copy" onclick="copyCF()">📋 Copia il codice fiscale</button>
       </div>
     </div>
@@ -425,15 +494,28 @@
           Dona con PayPal
         </a>
         <p class="dona-note">🔒 Transazione sicura. Puoi donare anche senza un account PayPal.</p>
+
+        <!-- BONIFICO -->
+        <div style="margin-top:1.2rem;padding:1.2rem 1.4rem;background:var(--sky-lt);border-radius:var(--r);border-left:4px solid var(--sky);text-align:left">
+          <p style="font-size:.82rem;font-weight:800;color:var(--blue);margin-bottom:.6rem">🏦 Oppure dona tramite bonifico bancario</p>
+          <p style="font-size:.8rem;font-weight:600;color:var(--muted);margin-bottom:.3rem">Intestatario: <strong style="color:var(--dark)">Associazione Educativa Laboratorio Tecnico ODV</strong></p>
+          <p style="font-size:.8rem;font-weight:600;color:var(--muted);margin-bottom:.3rem">Banca: <strong style="color:var(--dark)">Intesa Sanpaolo</strong> · Filiale Accentrata · Piazza Paolo Ferrari 10</p>
+          <div style="display:flex;align-items:center;gap:.6rem;margin-top:.5rem;flex-wrap:wrap">
+            <code id="iban-text" style="font-size:.85rem;font-weight:800;color:var(--dark);background:white;padding:.4rem .8rem;border-radius:8px;border:1.5px solid var(--sky-mid);letter-spacing:.04em">IT51R0306909606100000013451</code>
+            <button onclick="copyIBAN()" style="background:var(--blue);color:#fff;border:none;cursor:pointer;font-family:var(--font);font-size:.78rem;font-weight:800;padding:.4rem 1rem;border-radius:50px;white-space:nowrap">📋 Copia IBAN</button>
+          </div>
+          <p style="font-size:.75rem;font-weight:600;color:var(--muted);margin-top:.5rem;opacity:.8">Causale: <em>Donazione liberale + il tuo codice fiscale</em></p>
+        </div>
         <div style="margin-top:1.5rem;padding:1.2rem 1.4rem;background:var(--sky-lt);border-radius:var(--r);border-left:4px solid var(--blue);text-align:left">
           <p style="font-size:.82rem;font-weight:800;color:var(--blue);margin-bottom:.4rem">💰 Vantaggi fiscali per il donatore</p>
           <p style="font-size:.8rem;font-weight:600;color:var(--muted);line-height:1.7;margin:0">
-            In quanto <strong style="color:var(--dark)">ODV iscritta al RUNTS</strong>, le donazioni a Laboratorio Tecnico ODV danno diritto, in alternativa, a:
+            In quanto <strong style="color:var(--dark)">ODV iscritta al RUNTS</strong>, le donazioni a Associazione Educativa Laboratorio Tecnico ODV danno diritto, in alternativa, a:
           </p>
           <ul style="font-size:.8rem;font-weight:600;color:var(--muted);line-height:1.8;margin:.5rem 0 .5rem 1.2rem;padding:0">
             <li><strong style="color:var(--dark)">Detrazione IRPEF del 35%</strong> dell'importo donato, fino a €30.000 annui</li>
             <li><strong style="color:var(--dark)">Deduzione dal reddito complessivo</strong> nel limite del 10% del reddito dichiarato (max €70.000 annui)</li>
           </ul>
+          <p style="font-size:.8rem;font-weight:600;color:var(--muted);line-height:1.7;margin:.5rem 0 0">Per usufruire del beneficio, indica il <strong style="color:var(--dark)">tuo codice fiscale</strong> nella causale del bonifico o nella nota del pagamento PayPal: la donazione apparirà automaticamente nella dichiarazione dei redditi precompilata.</p>
           <p style="font-size:.75rem;font-weight:600;color:var(--muted);margin:0;opacity:.75">Art. 83, D.Lgs. 117/2017 – Codice del Terzo Settore. Conservare la ricevuta della donazione.</p>
         </div>
       </div>
@@ -474,6 +556,10 @@
             <div><p class="contact-k">PEC</p><p class="contact-v"><a href="mailto:info@pec.laboratoriotecnico.eu">info@pec.laboratoriotecnico.eu</a></p></div>
           </div>
           <div class="contact-item">
+            <div class="contact-icon">📘</div>
+            <div><p class="contact-k">Facebook</p><p class="contact-v"><a href="https://www.facebook.com/LaboratorioTecnico" target="_blank" rel="noopener">facebook.com/LaboratorioTecnico</a></p></div>
+          </div>
+          <div class="contact-item">
             <div class="contact-icon">🌐</div>
             <div><p class="contact-k">Sito web</p><p class="contact-v"><a href="https://laboratoriotecnico.eu">laboratoriotecnico.eu</a></p></div>
           </div>
@@ -482,26 +568,104 @@
             <div><p class="contact-k">Codice Fiscale</p><p class="contact-v">93026570429</p></div>
           </div>
         </div>
-        <div class="contact-map">
-          <span style="font-size:3rem">🗺️</span>
-          <p>Via Filippo Marchetti 1</p>
-          <p>60125 Ancona (AN)</p>
-          <p style="font-size:.75rem;color:var(--sky-mid);margin-top:.4rem">Puoi integrare qui una mappa Google Maps</p>
+        <div style="border-radius:var(--r-lg);overflow:hidden;height:300px;border:2px solid var(--sky-mid)">
+          <iframe
+            title="Sede Associazione Educativa Laboratorio Tecnico ODV"
+            src="https://www.google.com/maps?q=43.60862,13.50432&z=17&output=embed"
+            width="100%" height="100%"
+            style="border:0;display:block"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
+      </div>
+
+      <!-- FORM DI CONTATTO -->
+      <div style="margin-top:3rem;background:var(--sky-lt);border-radius:var(--r-lg);padding:2.5rem 2.5rem 2rem">
+        <p class="section-label" style="margin-bottom:.8rem">Scrivici</p>
+        <h3 style="font-size:1.4rem;font-weight:900;margin-bottom:.5rem;color:var(--dark)">Mandaci un messaggio</h3>
+        <p style="font-size:.9rem;font-weight:600;color:var(--muted);margin-bottom:1.8rem">Compila il modulo e ti risponderemo il prima possibile.</p>
+
+        <form id="contact-form"
+          action="https://formspree.io/f/FORM_ID"
+          method="POST"
+          onsubmit="handleSubmit(event)"
+          class="contact-form-grid">
+
+          <!-- Honeypot antispam (nascosto ai browser, visibile ai bot) -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+          <!-- Redirect dopo invio -->
+          <input type="hidden" name="_next" value="https://laboratoriotecnico.eu/?grazie=1" />
+
+          <div style="display:flex;flex-direction:column;gap:.4rem">
+            <label style="font-size:.75rem;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase">Nome *</label>
+            <input type="text" name="nome" required placeholder="Il tuo nome"
+              style="padding:.75rem 1rem;border:2px solid var(--sky-mid);border-radius:var(--r);font-family:var(--font);font-size:.92rem;font-weight:600;outline:none;transition:border-color .2s"
+              onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--sky-mid)'" />
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:.4rem">
+            <label style="font-size:.75rem;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase">Email *</label>
+            <input type="email" name="email" required placeholder="La tua email"
+              style="padding:.75rem 1rem;border:2px solid var(--sky-mid);border-radius:var(--r);font-family:var(--font);font-size:.92rem;font-weight:600;outline:none;transition:border-color .2s"
+              onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--sky-mid)'" />
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:.4rem">
+            <label style="font-size:.75rem;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase">Telefono</label>
+            <input type="tel" name="telefono" placeholder="Opzionale"
+              style="padding:.75rem 1rem;border:2px solid var(--sky-mid);border-radius:var(--r);font-family:var(--font);font-size:.92rem;font-weight:600;outline:none;transition:border-color .2s"
+              onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--sky-mid)'" />
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:.4rem">
+            <label style="font-size:.75rem;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase">Oggetto</label>
+            <select name="oggetto"
+              style="padding:.75rem 1rem;border:2px solid var(--sky-mid);border-radius:var(--r);font-family:var(--font);font-size:.92rem;font-weight:600;outline:none;background:white;transition:border-color .2s"
+              onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--sky-mid)'">
+              <option value="">Seleziona...</option>
+              <option>Informazioni generali</option>
+              <option>Attività educative</option>
+              <option>Sostegno disabilità</option>
+              <option>Diventare volontario</option>
+              <option>Donazioni</option>
+              <option>Altro</option>
+            </select>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:.4rem;grid-column:1/-1">
+            <label style="font-size:.75rem;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase">Messaggio *</label>
+            <textarea name="messaggio" required rows="5" placeholder="Scrivi qui il tuo messaggio..."
+              style="padding:.75rem 1rem;border:2px solid var(--sky-mid);border-radius:var(--r);font-family:var(--font);font-size:.92rem;font-weight:600;outline:none;resize:vertical;transition:border-color .2s"
+              onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--sky-mid)'"></textarea>
+          </div>
+
+          <div style="grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+            <p style="font-size:.75rem;font-weight:600;color:var(--muted)">* campi obbligatori · I tuoi dati sono trattati ai sensi della nostra <a href="privacy.html" style="color:var(--blue)">Privacy Policy</a></p>
+            <button type="submit" id="submit-btn"
+              style="background:var(--blue);color:#fff;border:none;cursor:pointer;font-family:var(--font);font-size:.95rem;font-weight:800;padding:.8rem 2rem;border-radius:50px;transition:background .2s;white-space:nowrap"
+              onmouseover="this.style.background='var(--blue-dk)'" onmouseout="this.style.background='var(--blue)'">
+              Invia messaggio →
+            </button>
+          </div>
+
+          <div id="form-feedback" style="grid-column:1/-1;display:none;padding:.9rem 1.2rem;border-radius:var(--r);font-size:.88rem;font-weight:700"></div>
+        </form>
       </div>
     </div>
   </section>
 
   <footer>
     <div class="footer-inner">
-      <div class="footer-logo">Laboratorio<span>Tecnico</span> ODV</div>
+      <div class="footer-logo">Associazione Educativa <span>Laboratorio Tecnico</span> ODV</div>
       <div style="display:flex;flex-direction:column;gap:.35rem;text-align:center">
         <p class="footer-copy">© 1985–2026 Associazione Educativa Laboratorio Tecnico ODV · Via Filippo Marchetti 1, 60125 Ancona (AN) · C.F. 93026570429</p>
         <p class="footer-copy">Iscritta al RUNTS – Registro Unico Nazionale del Terzo Settore, sezione Organizzazioni di Volontariato, repertorio n. 80820 dal 21/11/2022, con DDS della Regione Marche n. 399/2022</p>
       </div>
       <div class="footer-links">
+        <a href="https://www.facebook.com/LaboratorioTecnico" target="_blank" rel="noopener">Facebook</a>
         <a href="privacy.html">Privacy Policy</a>
-        <a href="#">Statuto</a>
       </div>
     </div>
   </footer>
@@ -524,6 +688,46 @@
         link.href = 'https://www.paypal.com/paypalme/LabTecnico';
       }
     }
+    async function handleSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('contact-form');
+      const btn  = document.getElementById('submit-btn');
+      const fb   = document.getElementById('form-feedback');
+      btn.textContent = 'Invio in corso...';
+      btn.disabled = true;
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          fb.style.display = 'block';
+          fb.style.background = '#d4edda';
+          fb.style.color = '#155724';
+          fb.textContent = '✅ Messaggio inviato! Ti risponderemo al più presto.';
+          form.reset();
+          btn.textContent = 'Inviato ✓';
+        } else {
+          throw new Error();
+        }
+      } catch {
+        fb.style.display = 'block';
+        fb.style.background = '#f8d7da';
+        fb.style.color = '#721c24';
+        fb.textContent = '❌ Errore nell\'invio. Scrivici direttamente a info@laboratoriotecnico.eu';
+        btn.textContent = 'Invia messaggio →';
+        btn.disabled = false;
+      }
+    }
+    function copyIBAN() {
+      navigator.clipboard.writeText('IT51R0306909606100000013451').then(() => {
+        const btn = event.target;
+        const orig = btn.textContent;
+        btn.textContent = '✅ Copiato!';
+        setTimeout(() => btn.textContent = orig, 2000);
+      });
+    }
     function copyCF() {
       navigator.clipboard.writeText('93026570429').then(() => {
         const btn = document.querySelector('.btn-copy');
@@ -539,54 +743,7 @@
       sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
       navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--blue)' : ''; });
     });
-    // Cookie banner
-    (function() {
-      if (!localStorage.getItem('cookie_consent')) {
-        document.getElementById('cookie-banner').style.display = 'flex';
-      }
-    })();
-    function acceptCookies() {
-      localStorage.setItem('cookie_consent', 'accepted');
-      document.getElementById('cookie-banner').style.display = 'none';
-    }
-    function declineCookies() {
-      localStorage.setItem('cookie_consent', 'technical');
-      document.getElementById('cookie-banner').style.display = 'none';
-    }
   </script>
-  <!-- COOKIE BANNER -->
-  <div id="cookie-banner" style="
-    display:none; position:fixed; bottom:0; left:0; right:0; z-index:9999;
-    background:#1a2a3a; color:#fff; padding:1.2rem 2rem;
-    display:flex; align-items:center; justify-content:space-between;
-    flex-wrap:wrap; gap:1rem;
-    box-shadow:0 -4px 24px rgba(0,0,0,.25);
-    font-family:'Nunito',system-ui,sans-serif;
-  ">
-    <p style="font-size:.85rem;font-weight:600;color:rgba(255,255,255,.85);margin:0;max-width:720px;line-height:1.6">
-      🍪 Questo sito utilizza solo cookie tecnici necessari al funzionamento e Google Fonts (che trasferisce l'indirizzo IP a Google LLC).
-      Non utilizziamo cookie di profilazione o analisi. Leggi la nostra
-      <a href="privacy.html" style="color:#5BB8F5;text-decoration:underline">Privacy Policy</a>.
-    </p>
-    <div style="display:flex;gap:.8rem;flex-shrink:0">
-      <button onclick="acceptCookies()" style="
-        background:#1A6BBF; color:#fff; border:none; cursor:pointer;
-        font-family:'Nunito',system-ui,sans-serif; font-size:.88rem; font-weight:800;
-        padding:.6rem 1.4rem; border-radius:50px;
-        transition:background .2s;
-      " onmouseover="this.style.background='#0D4A8A'" onmouseout="this.style.background='#1A6BBF'">
-        Ho capito
-      </button>
-      <button onclick="declineCookies()" style="
-        background:transparent; color:rgba(255,255,255,.6); border:1px solid rgba(255,255,255,.3);
-        cursor:pointer; font-family:'Nunito',system-ui,sans-serif; font-size:.88rem; font-weight:700;
-        padding:.6rem 1.4rem; border-radius:50px;
-        transition:all .2s;
-      " onmouseover="this.style.borderColor='rgba(255,255,255,.7)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,.3)';this.style.color='rgba(255,255,255,.6)'">
-        Solo tecnici
-      </button>
-    </div>
-  </div>
 
 </body>
 </html>
