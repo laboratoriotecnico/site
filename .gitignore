@@ -8,3 +8,6 @@ out/
 # IntelliJ temporary files
 *.xml.bak
 shelf/
+
+# Claude
+.claude/
