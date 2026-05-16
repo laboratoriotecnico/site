@@ -116,6 +116,6 @@ Ospitato su **GitHub Pages** (account: `laboratoriotecnico`) e raggiungibile su 
 
 ## Mappa
 - Embed Google Maps con coordinate: **43.6089572, 13.5033201**
-- Zoom level: 14
+- Zoom level: 13
 - Responsive: 100% width, height 280px (contact grid), 300px (full screen)
 - Border: 2px solid var(--sky-mid), border-radius var(--r-lg)
