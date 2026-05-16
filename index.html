@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>/
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Associazione Educativa Laboratorio Tecnico ODV</title>
@@ -96,7 +96,8 @@
     }
 
     html { scroll-behavior: smooth; }
-    body { font-family: var(--font); color: var(--dark); background: var(--white); line-height: 1.65; overflow-x: hidden; }
+    body { font-family: 'Nunito', system-ui, sans-serif; color: var(--dark); background: var(--white); line-height: 1.65; overflow-x: hidden; }
+    input, select, textarea, button { font-family: 'Nunito', system-ui, sans-serif; }
 
     /* ── STICKY DONA ── */
     .sticky-dona {
@@ -104,7 +105,7 @@
       background: var(--paypal); color: #fff;
       border: none; border-radius: 50px;
       padding: 14px 26px;
-      font-family: var(--font); font-size: 1rem; font-weight: 800;
+      font-family: 'Nunito', system-ui, sans-serif; font-size: 1rem; font-weight: 800;
       cursor: pointer;
       box-shadow: 0 6px 24px rgba(0,112,186,.38);
       display: flex; align-items: center; gap: 8px;
@@ -133,7 +134,6 @@
     }
     .nav-logo-text { font-size: 1rem; font-weight: 900; color: var(--dark); line-height: 1.1; }
     .nav-logo-text span { color: var(--blue); }
-    .nav-logo-sub { font-size: .68rem; font-weight: 600; color: var(--muted); }
     .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
     .nav-links a { font-size: .88rem; font-weight: 700; color: var(--muted); text-decoration: none; transition: color .2s; }
     .nav-links a:hover { color: var(--blue); }
@@ -174,7 +174,7 @@
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn-white {
       display: inline-block; background: #fff; color: var(--blue);
-      font-family: var(--font); font-weight: 800; font-size: .9rem;
+      font-family: 'Nunito', system-ui, sans-serif; font-weight: 800; font-size: .9rem;
       padding: .75rem 2rem; border-radius: 50px; text-decoration: none;
       transition: transform .2s, box-shadow .2s;
     }
@@ -182,7 +182,7 @@
     .btn-outline-w {
       display: inline-block; background: transparent;
       border: 2px solid rgba(255,255,255,.6); color: #fff;
-      font-family: var(--font); font-weight: 800; font-size: .9rem;
+      font-family: 'Nunito', system-ui, sans-serif; font-weight: 800; font-size: .9rem;
       padding: .75rem 2rem; border-radius: 50px; text-decoration: none;
       transition: background .2s, border-color .2s;
     }
@@ -252,7 +252,7 @@
     .cinque-box h3 { color: #fff; font-size: 1rem; font-weight: 800; margin-bottom: .3rem; }
     .cinque-cf { font-size: 1.8rem; font-weight: 900; color: var(--sun); letter-spacing: .06em; margin: .5rem 0 1rem; background: rgba(0,0,0,.2); border-radius: var(--r); padding: .7rem 1.2rem; display: inline-block; }
     .cinque-box p { color: rgba(255,255,255,.7); font-size: .82rem; font-weight: 600; line-height: 1.6; }
-    .btn-copy { margin-top: 1.2rem; background: var(--sun); color: var(--dark); border: none; cursor: pointer; font-family: var(--font); font-weight: 800; font-size: .85rem; padding: .65rem 1.5rem; border-radius: 50px; transition: transform .15s; }
+    .btn-copy { margin-top: 1.2rem; background: var(--sun); color: var(--dark); border: none; cursor: pointer; font-family: 'Nunito', system-ui, sans-serif; font-weight: 800; font-size: .85rem; padding: .65rem 1.5rem; border-radius: 50px; transition: transform .15s; }
     .btn-copy:hover { transform: scale(1.04); }
 
     /* ── DONA ── */
@@ -262,9 +262,9 @@
     .dona-wrap .section-intro { margin: 0 auto 3rem; }
     .dona-card { background: var(--white); border-radius: var(--r-lg); padding: 3rem; box-shadow: 0 8px 40px rgba(26,107,191,.10); }
     .dona-amounts { display: grid; grid-template-columns: repeat(5, 1fr); gap: .7rem; margin-bottom: 2rem; align-items: center; }
-    .amount-btn { padding: .7rem .5rem; border: 2px solid var(--sky-mid); border-radius: var(--r); background: transparent; color: var(--blue); font-family: var(--font); font-size: 1rem; font-weight: 800; cursor: pointer; transition: all .15s; }
+    .amount-btn { padding: .7rem .5rem; border: 2px solid var(--sky-mid); border-radius: var(--r); background: transparent; color: var(--blue); font-family: 'Nunito', system-ui, sans-serif; font-size: 1rem; font-weight: 800; cursor: pointer; transition: all .15s; }
     .amount-btn:hover, .amount-btn.active { background: var(--blue); color: #fff; border-color: var(--blue); }
-    .paypal-submit { width: 100%; background: var(--paypal); color: #fff; border: none; font-family: var(--font); font-size: 1.1rem; font-weight: 900; padding: 1rem; border-radius: 50px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: background .2s, transform .15s; margin-bottom: .8rem; }
+    .paypal-submit { width: 100%; background: var(--paypal); color: #fff; border: none; font-family: 'Nunito', system-ui, sans-serif; font-size: 1.1rem; font-weight: 900; padding: 1rem; border-radius: 50px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: background .2s, transform .15s; margin-bottom: .8rem; }
     .paypal-submit:hover { background: #005ea6; transform: translateY(-2px); }
     .dona-note { font-size: .78rem; font-weight: 600; color: var(--muted); }
 
@@ -279,7 +279,6 @@
     .contact-v { font-size: .95rem; font-weight: 700; color: var(--dark); }
     .contact-v a { color: var(--blue); text-decoration: none; }
     .contact-v a:hover { text-decoration: underline; }
-    .contact-map { background: var(--sky-lt); border-radius: var(--r-lg); height: 280px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem; color: var(--muted); font-size: .85rem; font-weight: 600; text-align: center; }
 
     /* ── FOOTER ── */
     footer { background: var(--dark); padding: 3rem 2.5rem; }
@@ -488,8 +487,9 @@
               type="number"
               min="1"
               placeholder="altro"
+              aria-label="Importo libero in euro"
               oninput="setCustomAmount(this.value)"
-              style="border:none;outline:none;padding:.65rem .5rem;font-family:var(--font);font-size:.95rem;font-weight:700;color:var(--dark);width:80px;background:white"
+              style="border:none;outline:none;padding:.65rem .5rem;font-size:.95rem;font-weight:700;color:var(--dark);width:80px;background:white"
             />
           </div>
         </div>
@@ -506,7 +506,7 @@
           <p style="font-size:.8rem;font-weight:600;color:var(--muted);margin-bottom:.3rem">Banca: <strong style="color:var(--dark)">Intesa Sanpaolo</strong> · Filiale Accentrata · Piazza Paolo Ferrari 10</p>
           <div style="display:flex;align-items:center;gap:.6rem;margin-top:.5rem;flex-wrap:wrap">
             <code id="iban-text" style="font-size:.85rem;font-weight:800;color:var(--dark);background:white;padding:.4rem .8rem;border-radius:8px;border:1.5px solid var(--sky-mid);letter-spacing:.04em">IT51R0306909606100000013451</code>
-            <button class="btn-copy-iban" onclick="copyIBAN()" style="background:var(--blue);color:#fff;border:none;cursor:pointer;font-family:var(--font);font-size:.78rem;font-weight:800;padding:.4rem 1rem;border-radius:50px;white-space:nowrap">📋 Copia IBAN</button>
+            <button class="btn-copy-iban" onclick="copyIBAN()" style="background:var(--blue);color:#fff;border:none;cursor:pointer;font-size:.78rem;font-weight:800;padding:.4rem 1rem;border-radius:50px;white-space:nowrap">📋 Copia IBAN</button>
           </div>
           <p style="font-size:.75rem;font-weight:600;color:var(--muted);margin-top:.5rem;opacity:.8">Causale: <em>Donazione liberale + il tuo codice fiscale</em></p>
         </div>
@@ -594,39 +594,38 @@
         <form id="contact-form"
           action="https://formspree.io/f/FORM_ID"
           method="POST"
-          onsubmit="handleSubmit(event)"
           class="contact-form-grid">
 
           <!-- Honeypot antispam (nascosto ai browser, visibile ai bot) -->
-          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+          <input type="text" name="_gotcha" aria-hidden="true" aria-label="Non compilare" style="display:none" tabindex="-1" autocomplete="off" />
           <!-- Redirect dopo invio -->
           <input type="hidden" name="_next" value="https://laboratoriotecnico.eu/?grazie=1" />
 
           <div style="display:flex;flex-direction:column;gap:.4rem">
-            <label style="font-size:.75rem;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase">Nome *</label>
-            <input type="text" name="nome" required placeholder="Il tuo nome"
-              style="padding:.75rem 1rem;border:2px solid var(--sky-mid);border-radius:var(--r);font-family:var(--font);font-size:.92rem;font-weight:600;outline:none;transition:border-color .2s"
+            <label for="f-nome" style="font-size:.75rem;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase">Nome *</label>
+            <input id="f-nome" type="text" name="nome" required placeholder="Il tuo nome"
+              style="padding:.75rem 1rem;border:2px solid var(--sky-mid);border-radius:var(--r);font-size:.92rem;font-weight:600;outline:none;transition:border-color .2s"
               onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--sky-mid)'" />
           </div>
 
           <div style="display:flex;flex-direction:column;gap:.4rem">
-            <label style="font-size:.75rem;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase">Email *</label>
-            <input type="email" name="email" required placeholder="La tua email"
-              style="padding:.75rem 1rem;border:2px solid var(--sky-mid);border-radius:var(--r);font-family:var(--font);font-size:.92rem;font-weight:600;outline:none;transition:border-color .2s"
+            <label for="f-email" style="font-size:.75rem;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase">Email *</label>
+            <input id="f-email" type="email" name="email" required placeholder="La tua email"
+              style="padding:.75rem 1rem;border:2px solid var(--sky-mid);border-radius:var(--r);font-size:.92rem;font-weight:600;outline:none;transition:border-color .2s"
               onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--sky-mid)'" />
           </div>
 
           <div style="display:flex;flex-direction:column;gap:.4rem">
-            <label style="font-size:.75rem;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase">Telefono</label>
-            <input type="tel" name="telefono" placeholder="Opzionale"
-              style="padding:.75rem 1rem;border:2px solid var(--sky-mid);border-radius:var(--r);font-family:var(--font);font-size:.92rem;font-weight:600;outline:none;transition:border-color .2s"
+            <label for="f-telefono" style="font-size:.75rem;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase">Telefono</label>
+            <input id="f-telefono" type="tel" name="telefono" placeholder="Opzionale"
+              style="padding:.75rem 1rem;border:2px solid var(--sky-mid);border-radius:var(--r);font-size:.92rem;font-weight:600;outline:none;transition:border-color .2s"
               onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--sky-mid)'" />
           </div>
 
           <div style="display:flex;flex-direction:column;gap:.4rem">
-            <label style="font-size:.75rem;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase">Oggetto</label>
-            <select name="oggetto"
-              style="padding:.75rem 1rem;border:2px solid var(--sky-mid);border-radius:var(--r);font-family:var(--font);font-size:.92rem;font-weight:600;outline:none;background:white;transition:border-color .2s"
+            <label for="f-oggetto" style="font-size:.75rem;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase">Oggetto</label>
+            <select id="f-oggetto" name="oggetto"
+              style="padding:.75rem 1rem;border:2px solid var(--sky-mid);border-radius:var(--r);font-size:.92rem;font-weight:600;outline:none;background:white;transition:border-color .2s"
               onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--sky-mid)'">
               <option value="">Seleziona...</option>
               <option>Informazioni generali</option>
@@ -639,16 +638,16 @@
           </div>
 
           <div style="display:flex;flex-direction:column;gap:.4rem;grid-column:1/-1">
-            <label style="font-size:.75rem;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase">Messaggio *</label>
-            <textarea name="messaggio" required rows="5" placeholder="Scrivi qui il tuo messaggio..."
-              style="padding:.75rem 1rem;border:2px solid var(--sky-mid);border-radius:var(--r);font-family:var(--font);font-size:.92rem;font-weight:600;outline:none;resize:vertical;transition:border-color .2s"
+            <label for="f-messaggio" style="font-size:.75rem;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase">Messaggio *</label>
+            <textarea id="f-messaggio" name="messaggio" required rows="5" placeholder="Scrivi qui il tuo messaggio..."
+              style="padding:.75rem 1rem;border:2px solid var(--sky-mid);border-radius:var(--r);font-size:.92rem;font-weight:600;outline:none;resize:vertical;transition:border-color .2s"
               onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--sky-mid)'"></textarea>
           </div>
 
           <div style="grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
             <p style="font-size:.75rem;font-weight:600;color:var(--muted)">* campi obbligatori · I tuoi dati sono trattati ai sensi della nostra <a href="privacy.html" style="color:var(--blue)">Privacy Policy</a></p>
             <button type="submit" id="submit-btn"
-              style="background:var(--blue);color:#fff;border:none;cursor:pointer;font-family:var(--font);font-size:.95rem;font-weight:800;padding:.8rem 2rem;border-radius:50px;transition:background .2s;white-space:nowrap"
+              style="background:var(--blue);color:#fff;border:none;cursor:pointer;font-size:.95rem;font-weight:800;padding:.8rem 2rem;border-radius:50px;transition:background .2s;white-space:nowrap"
               onmouseover="this.style.background='var(--blue-dk)'" onmouseout="this.style.background='var(--blue)'">
               Invia messaggio →
             </button>
@@ -690,30 +689,30 @@
         link.href = 'https://www.paypal.com/paypalme/LabTecnico';
       }
     }
-    async function handleSubmit(e) {
+    document.getElementById('contact-form').addEventListener('submit', async function(e) {
       e.preventDefault();
-      const form = document.getElementById('contact-form');
+      const form = e.target;
       const btn  = document.getElementById('submit-btn');
       const fb   = document.getElementById('form-feedback');
       btn.textContent = 'Invio in corso...';
       btn.disabled = true;
+      let ok = false;
       try {
         const res = await fetch(form.action, {
           method: 'POST',
           body: new FormData(form),
           headers: { 'Accept': 'application/json' }
         });
-        if (res.ok) {
-          fb.style.display = 'block';
-          fb.style.background = '#d4edda';
-          fb.style.color = '#155724';
-          fb.textContent = '✅ Messaggio inviato! Ti risponderemo al più presto.';
-          form.reset();
-          btn.textContent = 'Inviato ✓';
-        } else {
-          throw new Error();
-        }
-      } catch {
+        ok = res.ok;
+      } catch {}
+      if (ok) {
+        fb.style.display = 'block';
+        fb.style.background = '#d4edda';
+        fb.style.color = '#155724';
+        fb.textContent = '✅ Messaggio inviato! Ti risponderemo al più presto.';
+        form.reset();
+        btn.textContent = 'Inviato ✓';
+      } else {
         fb.style.display = 'block';
         fb.style.background = '#f8d7da';
         fb.style.color = '#721c24';
@@ -721,7 +720,7 @@
         btn.textContent = 'Invia messaggio →';
         btn.disabled = false;
       }
-    }
+    });
     function copyIBAN() {
       navigator.clipboard.writeText('IT51R0306909606100000013451').then(() => {
         const btn = document.querySelector('.btn-copy-iban');
