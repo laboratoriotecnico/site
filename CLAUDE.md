@@ -1,4 +1,7 @@
-# Laboratorio Tecnico ODV — Sito Web
+# Associazione Educativa Laboratorio Tecnico ODV — Sito Web
+
+## Istruzioni per Claude
+- **CLAUDE.md deve essere sempre aggiornato.** Dopo ogni modifica al progetto (struttura file, stack, comportamenti, convenzioni), aggiorna immediatamente le sezioni pertinenti di questo file.
 
 ## Contesto progetto
 Sito statico istituzionale dell'Associazione Educativa Laboratorio Tecnico ODV di Ancona.
@@ -16,7 +19,11 @@ Ospitato su **GitHub Pages** (account: `laboratoriotecnico`) e raggiungibile su 
 ## File del progetto
 - `index.html` — pagina principale (con SEO, OG tags, Schema.org)
 - `privacy.html` — informativa privacy (GDPR)
-- `bambini.png` — illustrazione hero (due bambini che giocano)
+- `/images/` — directory con tutte le immagini e icone:
+  - `bambini.png` — illustrazione hero (due bambini che giocano)
+  - `favicon.svg` — icona SVG con sfondo bianco (per browser)
+  - `apple-touch-icon.png` — icona PNG 180×180 (per iOS)
+  - `logo.svg` — logo orizzontale (usato nel nav)
 - `/fonts/` — directory con font Nunito (5 varianti TTF)
 - `CNAME` — dominio personalizzato (`laboratoriotecnico.eu`)
 - `.gitignore` — esclude `.idea/` e file IntelliJ
