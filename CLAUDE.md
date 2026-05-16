@@ -84,7 +84,7 @@ Ospitato su **GitHub Pages** (account: `laboratoriotecnico`) e raggiungibile su 
 5. **5×1000** (box scuro con CF copiabile)
 6. **Dona** (card con importi preset + input custom + PayPal.me + info fiscali)
 7. **Contatti** (griglia con lista contatti + mappa Google Maps + form contatti)
-8. **Footer** (logo, copyright 1985–2026 + iscrizione RUNTS, link Privacy Policy)
+8. **Footer** (copyright 1985–2026 + iscrizione RUNTS, link Privacy Policy)
 
 ## SEO e Meta tag
 - **Open Graph** (og:type, og:url, og:title, og:description, og:image, og:locale, og:site_name)
@@ -95,18 +95,21 @@ Ospitato su **GitHub Pages** (account: `laboratoriotecnico`) e raggiungibile su 
 
 ## Form di contatto
 - Elemento `#contact-form` con Formspree
-- Campi: nome*, email*, telefono (opz.)
-- Honeypot antispam: `_gotcha` (nascosto)
+- Campi: nome* (`#f-nome`), email* (`#f-email`), telefono (`#f-telefono`), oggetto (`#f-oggetto`), messaggio* (`#f-messaggio`)
+- Tutti i `<label>` hanno `for` collegato all'`id` del campo
+- Honeypot antispam: `_gotcha` con `aria-hidden="true"` e `aria-label="Non compilare"`
 - Redirect post-invio: `/?grazie=1`
-- Validazione HTML5 (required, type="email")
+- Submit tramite `addEventListener('submit', ...)` — nessun `onsubmit` inline
+- Logica invio: flag `ok = res.ok` nel try/catch, nessun `throw` locale
 
 ## Note di stile
-- Font: Nunito, arrotondato, sans-serif
+- Font: `'Nunito', system-ui, sans-serif` — dichiarato esplicitamente su `body`, `input`, `select`, `textarea`, `button`; non più tramite `var(--font)` negli stili inline
 - Angoli arrotondati ovunque (border-radius 24–40px)
 - Onde SVG tra le sezioni (wave pattern)
 - Pulsante "Dona ora" sticky in basso a destra (sempre visibile, z-index 999)
 - Nessun framework CSS, responsive con media query a 900px
 - Smooth scroll behavior (`scroll-behavior: smooth`)
+- **Mobile footer**: testo copyright va a capo con `<br class="mobile-br">` e il separatore " · " si nasconde con `.mobile-hide`
 
 ## Donazioni
 - Link: `https://www.paypal.com/paypalme/LabTecnico/{importo}`
