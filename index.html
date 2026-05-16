@@ -785,8 +785,12 @@
                 body: fd
               });
             } catch {}
-            document.getElementById('paypal-button-container').innerHTML =
-              '<p style="color:var(--blue);font-weight:800;font-size:1.05rem;padding:1rem 0">💙 Grazie' + (firstName ? ' ' + firstName : '') + '! La tua donazione è stata ricevuta.</p>';
+            const container = document.getElementById('paypal-button-container');
+            container.innerHTML = '';
+            const p = document.createElement('p');
+            p.style.cssText = 'color:var(--blue);font-weight:800;font-size:1.05rem;padding:1rem 0';
+            p.textContent = '💙 Grazie' + (firstName ? ' ' + firstName : '') + '! La tua donazione è stata ricevuta.';
+            container.appendChild(p);
           });
         },
         onError(err) {
