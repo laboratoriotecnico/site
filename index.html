@@ -726,17 +726,15 @@
     function copyIBAN() {
       navigator.clipboard.writeText('IT51R0306909606100000013451').then(() => {
         const btn = document.querySelector('.btn-copy-iban');
-        const orig = btn.textContent;
         btn.textContent = '✅ Copiato!';
-        setTimeout(() => btn.textContent = orig, 2000);
+        setTimeout(() => { btn.textContent = '📋 Copia IBAN'; }, 2000);
       });
     }
     function copyCF() {
       navigator.clipboard.writeText('93026570429').then(() => {
         const btn = document.querySelector('.btn-copy');
-        const orig = btn.textContent;
         btn.textContent = '✅ Copiato!';
-        setTimeout(() => btn.textContent = orig, 2000);
+        setTimeout(() => { btn.textContent = '📋 Copia il codice fiscale'; }, 2000);
       });
     }
     const sections = document.querySelectorAll('section[id]');
