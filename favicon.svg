@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="517" height="460" viewBox="0 0 517 460">
+  <defs>
+    <style>
+      .cls-1 { fill: #3465ff; }
+      .cls-2 { fill: #0000fe; }
+      .cls-3 { fill: white; }
+      .cls-4 { fill: black; }
+    </style>
+    <mask id="mask">
+      <rect class="cls-3" width="100%" height="100%"/>
+      <path class="cls-4" d="M26.135,275.363L384.351,44.3l77.011,181.409Z"/>
+    </mask>
+  </defs>
+  <rect width="517" height="460" fill="white"/>
+  <path id="Poligono_1" data-name="Poligono 1" class="cls-1" d="M225.531,9.875c116.843,0,211.563,98.462,211.563,219.922s-94.72,219.922-211.563,219.922S13.969,351.256,13.969,229.8,108.689,9.875,225.531,9.875Z" mask="url(#mask)"/>
+  <path id="Poligono_2" data-name="Poligono 2" class="cls-2" d="M98.749,251.405L445.524,37.2l56.991,159.878Z"/>
+</svg>
