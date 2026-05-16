@@ -9,7 +9,7 @@ Ospitato su **GitHub Pages** (account: `laboratoriotecnico`) e raggiungibile su 
 - Font: **Nunito** caricati localmente da `/fonts/` (5 varianti: Regular, SemiBold, Bold, ExtraBold, Black)
 - Hosting: GitHub Pages (branch `main`, root `/`)
 - DNS: Aruba (4 record A + 4 AAAA GitHub + CNAME www)
-- Analytics: **Plausible** (privacy-friendly, no cookies, GDPR compliant)
+- Analytics: **Cloudflare Web Analytics** (privacy-friendly, no cookies, GDPR compliant, gratuito)
 - Form contatti: **Formspree** (`action="https://formspree.io/f/FORM_ID"`)
 - Mappa: **Google Maps embed** (coordinate: Via Filippo Marchetti 1, Ancona)
 
@@ -71,7 +71,7 @@ Ospitato su **GitHub Pages** (account: `laboratoriotecnico`) e raggiungibile su 
 
 ## Cookie / Privacy
 - Cookie banner con accettazione in localStorage (`cookie_consent`)
-- Solo cookie tecnici + trasferimento IP a Plausible (analytics GDPR compliant)
+- Solo cookie tecnici + Cloudflare Web Analytics (no cookie, GDPR compliant)
 - **Nessun cookie di profilazione, nessun pixel pubblicitario**
 - Privacy policy su `privacy.html`
 - Honeypot nel form contatti per antispam
