@@ -6,14 +6,18 @@ Ospitato su **GitHub Pages** (account: `laboratoriotecnico`) e raggiungibile su 
 
 ## Stack
 - HTML/CSS/JS puro, nessun framework, nessuna dipendenza npm
-- Font: **Nunito** via Google Fonts
+- Font: **Nunito** caricati localmente da `/fonts/` (5 varianti: Regular, SemiBold, Bold, ExtraBold, Black)
 - Hosting: GitHub Pages (branch `main`, root `/`)
-- DNS: Aruba (4 record A GitHub + CNAME www)
+- DNS: Aruba (4 record A + 4 AAAA GitHub + CNAME www)
+- Analytics: **Plausible** (privacy-friendly, no cookies, GDPR compliant)
+- Form contatti: **Formspree** (`action="https://formspree.io/f/FORM_ID"`)
+- Mappa: **Google Maps embed** (coordinate: Via Filippo Marchetti 1, Ancona)
 
 ## File del progetto
-- `index.html` — pagina principale
+- `index.html` — pagina principale (con SEO, OG tags, Schema.org)
 - `privacy.html` — informativa privacy (GDPR)
 - `bambini.png` — illustrazione hero (due bambini che giocano)
+- `/fonts/` — directory con font Nunito (5 varianti TTF)
 - `CNAME` — dominio personalizzato (`laboratoriotecnico.eu`)
 - `.gitignore` — esclude `.idea/` e file IntelliJ
 
@@ -67,23 +71,51 @@ Ospitato su **GitHub Pages** (account: `laboratoriotecnico`) e raggiungibile su 
 
 ## Cookie / Privacy
 - Cookie banner con accettazione in localStorage (`cookie_consent`)
-- Solo cookie tecnici + Google Fonts (trasferimento IP a Google LLC, base SCC)
-- Nessun Analytics, nessun pixel pubblicitario
+- Solo cookie tecnici + trasferimento IP a Plausible (analytics GDPR compliant)
+- **Nessun cookie di profilazione, nessun pixel pubblicitario**
 - Privacy policy su `privacy.html`
+- Honeypot nel form contatti per antispam
 
 ## Struttura sezioni (index.html)
-1. Nav (sticky)
-2. Hero (gradient blu, immagine bambini, badge ODV/1985)
-3. Chi siamo (griglia testo + scheda anagrafica)
-4. Attività (3 card)
-5. 5×1000 (box scuro con CF copiabile)
-6. Dona (card con importi + PayPal.me + info fiscali)
-7. Contatti (indirizzo, tel/WA, email, PEC)
-8. Footer (copyright 1985–2026 + iscrizione RUNTS completa)
+1. **Nav** (sticky, logo + link anchor)
+2. **Hero** (gradient blu, immagine bambini, badge ODV/1985, CTA buttons)
+3. **Chi siamo** (griglia testo + scheda anagrafica con RUNTS/CF)
+4. **Attività** (3 card: educazione minori, sostegno disabilità, volontariato)
+5. **5×1000** (box scuro con CF copiabile)
+6. **Dona** (card con importi preset + input custom + PayPal.me + info fiscali)
+7. **Contatti** (griglia con lista contatti + mappa Google Maps + form contatti)
+8. **Footer** (logo, copyright 1985–2026 + iscrizione RUNTS, link Privacy Policy)
+
+## SEO e Meta tag
+- **Open Graph** (og:type, og:url, og:title, og:description, og:image, og:locale, og:site_name)
+- **Twitter Card** (twitter:card, twitter:title, twitter:description, twitter:image)
+- **Structured Data** (JSON-LD Schema.org type: NGO, con contactPoint, address, areaServed)
+- **Canonical URL** (`https://laboratoriotecnico.eu/`)
+- **Meta keywords** (volontariato Ancona, ODV Marche, educazione minori, disabilità)
+
+## Form di contatto
+- Elemento `#contact-form` con Formspree
+- Campi: nome*, email*, telefono (opz.)
+- Honeypot antispam: `_gotcha` (nascosto)
+- Redirect post-invio: `/?grazie=1`
+- Validazione HTML5 (required, type="email")
 
 ## Note di stile
 - Font: Nunito, arrotondato, sans-serif
 - Angoli arrotondati ovunque (border-radius 24–40px)
-- Onde SVG tra le sezioni
-- Pulsante "Dona ora" sticky in basso a destra (sempre visibile)
-- Nessun header/footer nelle pagine, nessun framework CSS
+- Onde SVG tra le sezioni (wave pattern)
+- Pulsante "Dona ora" sticky in basso a destra (sempre visibile, z-index 999)
+- Nessun framework CSS, responsive con media query a 900px
+- Smooth scroll behavior (`scroll-behavior: smooth`)
+
+## Donazioni
+- Link: `https://www.paypal.com/paypalme/LabTecnico/{importo}`
+- Importi preset: €10, €25, €50, €100 + input custom (€1–€9999)
+- JavaScript: `selectAmount()`, `setCustomAmount()` per aggiornare URL PayPal
+- Benefici fiscali ODV: detrazione IRPEF 35% (fino a €30.000) oppure deduzione 10% reddito (max €70.000) — art. 83 D.Lgs. 117/2017
+
+## Mappa
+- Embed Google Maps con coordinate: **43.6089572, 13.5033201**
+- Zoom level: 14
+- Responsive: 100% width, height 280px (contact grid), 300px (full screen)
+- Border: 2px solid var(--sky-mid), border-radius var(--r-lg)
