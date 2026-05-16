@@ -261,8 +261,7 @@
     .dona-amounts { display: grid; grid-template-columns: repeat(5, 1fr); gap: .7rem; margin-bottom: 2rem; align-items: center; }
     .amount-btn { padding: .7rem .5rem; border: 2px solid var(--sky-mid); border-radius: var(--r); background: transparent; color: var(--blue); font-family: 'Nunito', system-ui, sans-serif; font-size: 1rem; font-weight: 800; cursor: pointer; transition: all .15s; }
     .amount-btn:hover, .amount-btn.active { background: var(--blue); color: #fff; border-color: var(--blue); }
-    .paypal-submit { width: 100%; background: var(--paypal); color: #fff; border: none; font-family: 'Nunito', system-ui, sans-serif; font-size: 1.1rem; font-weight: 900; padding: 1rem; border-radius: 50px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: background .2s, transform .15s; margin-bottom: .8rem; }
-    .paypal-submit:hover { background: #005ea6; transform: translateY(-2px); }
+    #paypal-button-container { margin-bottom: .8rem; }
     .dona-note { font-size: .78rem; font-weight: 600; color: var(--muted); }
 
     /* ── CONTATTI ── */
@@ -485,10 +484,20 @@
             />
           </div>
         </div>
-        <a id="paypal-link" href="https://www.paypal.com/paypalme/LabTecnico/25" target="_blank" rel="noopener" class="paypal-submit" style="text-decoration:none">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          Dona con PayPal
-        </a>
+        <div style="margin-bottom:1rem;text-align:left">
+          <label for="donor-cf" style="display:block;font-size:.8rem;font-weight:800;color:var(--blue);margin-bottom:.4rem">Codice fiscale <span style="font-weight:600;color:var(--muted)">(persona fisica o giuridica — necessario per la detrazione fiscale)</span></label>
+          <input
+            id="donor-cf"
+            type="text"
+            maxlength="16"
+            placeholder="Persona fisica: RSSMRA80A01H501A — Ente: 12345678901"
+            autocomplete="on"
+            style="width:100%;box-sizing:border-box;border:2px solid var(--sky-mid);border-radius:var(--r);padding:.65rem 1rem;font-size:.95rem;font-weight:700;color:var(--dark);font-family:'Nunito',system-ui,sans-serif;outline:none;transition:border-color .15s"
+            onfocus="this.style.borderColor='var(--blue)'"
+            onblur="this.style.borderColor='var(--sky-mid)'"
+          />
+        </div>
+        <div id="paypal-button-container"></div>
         <p class="dona-note">🔒 Transazione sicura. Puoi donare anche senza un account PayPal.</p>
 
         <!-- BONIFICO -->
@@ -584,7 +593,7 @@
         <p style="font-size:.9rem;font-weight:600;color:var(--muted);margin-bottom:1.8rem">Compila il modulo e ti risponderemo il prima possibile.</p>
 
         <form id="contact-form"
-          action="https://formspree.io/f/FORM_ID"
+          action="https://formspree.io/f/xkoewwpg"
           method="POST"
           class="contact-form-grid">
 
@@ -592,31 +601,32 @@
           <input type="text" name="_gotcha" aria-hidden="true" aria-label="Non compilare" style="display:none" tabindex="-1" autocomplete="off" />
           <!-- Redirect dopo invio -->
           <input type="hidden" name="_next" value="https://laboratoriotecnico.eu/?grazie=1" />
+          <input type="hidden" name="_subject" id="contact-subject" value="Messaggio ricevuto" />
 
           <div style="display:flex;flex-direction:column;gap:.4rem">
             <label for="f-nome" style="font-size:.75rem;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase">Nome *</label>
-            <input id="f-nome" type="text" name="nome" required placeholder="Il tuo nome"
+            <input id="f-nome" type="text" name="Nome" required placeholder="Il tuo nome"
               style="padding:.75rem 1rem;border:2px solid var(--sky-mid);border-radius:var(--r);font-size:.92rem;font-weight:600;outline:none;transition:border-color .2s"
               onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--sky-mid)'" />
           </div>
 
           <div style="display:flex;flex-direction:column;gap:.4rem">
             <label for="f-email" style="font-size:.75rem;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase">Email *</label>
-            <input id="f-email" type="email" name="email" required placeholder="La tua email"
+            <input id="f-email" type="email" name="Email" required placeholder="La tua email"
               style="padding:.75rem 1rem;border:2px solid var(--sky-mid);border-radius:var(--r);font-size:.92rem;font-weight:600;outline:none;transition:border-color .2s"
               onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--sky-mid)'" />
           </div>
 
           <div style="display:flex;flex-direction:column;gap:.4rem">
             <label for="f-telefono" style="font-size:.75rem;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase">Telefono</label>
-            <input id="f-telefono" type="tel" name="telefono" placeholder="Opzionale"
+            <input id="f-telefono" type="tel" name="Telefono" placeholder="Opzionale"
               style="padding:.75rem 1rem;border:2px solid var(--sky-mid);border-radius:var(--r);font-size:.92rem;font-weight:600;outline:none;transition:border-color .2s"
               onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--sky-mid)'" />
           </div>
 
           <div style="display:flex;flex-direction:column;gap:.4rem">
             <label for="f-oggetto" style="font-size:.75rem;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase">Oggetto</label>
-            <select id="f-oggetto" name="oggetto"
+            <select id="f-oggetto" name="Oggetto"
               style="padding:.75rem 1rem;border:2px solid var(--sky-mid);border-radius:var(--r);font-size:.92rem;font-weight:600;outline:none;background:white;transition:border-color .2s"
               onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--sky-mid)'">
               <option value="">Seleziona...</option>
@@ -631,7 +641,7 @@
 
           <div style="display:flex;flex-direction:column;gap:.4rem;grid-column:1/-1">
             <label for="f-messaggio" style="font-size:.75rem;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase">Messaggio *</label>
-            <textarea id="f-messaggio" name="messaggio" required rows="5" placeholder="Scrivi qui il tuo messaggio..."
+            <textarea id="f-messaggio" name="Messaggio" required rows="5" placeholder="Scrivi qui il tuo messaggio..."
               style="padding:.75rem 1rem;border:2px solid var(--sky-mid);border-radius:var(--r);font-size:.92rem;font-weight:600;outline:none;resize:vertical;transition:border-color .2s"
               onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--sky-mid)'"></textarea>
           </div>
@@ -663,24 +673,27 @@
     </div>
   </footer>
 
+  <script src="https://www.paypal.com/sdk/js?client-id=AdYELd-9IBTRGEUpQAbPAsTmHeEB_SZlrtUNywuIXNGEMRc-6vdJfcn6yrzRRyzW05O4mM7xnTcV5WpC&currency=EUR&locale=it_IT&intent=capture&enable-funding=card&disable-funding=credit,paylater"></script>
   <script>
+    let currentAmount = 25;
+
     function selectAmount(btn, val) {
       document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       document.getElementById('custom-amount').value = '';
-      document.getElementById('paypal-link').href = 'https://www.paypal.com/paypalme/LabTecnico/' + val;
+      currentAmount = val;
     }
     function setCustomAmount(rawVal) {
       document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
-      const link = document.getElementById('paypal-link');
       const val = parseFloat(rawVal);
-      if (!isNaN(val) && isFinite(val) && val > 0 && val <= 9999) {
-        const safe = Math.round(val * 100) / 100; // max 2 decimali, nessun overflow
-        link.href = 'https://www.paypal.com/paypalme/LabTecnico/' + safe;
-      } else {
-        link.href = 'https://www.paypal.com/paypalme/LabTecnico';
-      }
+      currentAmount = (!isNaN(val) && isFinite(val) && val > 0 && val <= 9999)
+        ? Math.round(val * 100) / 100
+        : 0;
     }
+    document.getElementById('f-nome').addEventListener('input', function() {
+      const nome = this.value.trim();
+      document.getElementById('contact-subject').value = nome ? 'Messaggio ricevuto - ' + nome : 'Messaggio ricevuto';
+    });
     document.getElementById('contact-form').addEventListener('submit', async function(e) {
       e.preventDefault();
       const form = e.target;
@@ -727,6 +740,61 @@
         setTimeout(() => { btn.textContent = '📋 Copia il codice fiscale'; }, 2000);
       });
     }
+    if (typeof paypal !== 'undefined') {
+      paypal.Buttons({
+        createOrder(data, actions) {
+          const cf = document.getElementById('donor-cf').value.trim().toUpperCase();
+          const amount = (currentAmount > 0 ? currentAmount : 25).toFixed(2);
+          const unit = {
+            amount: { value: amount, currency_code: 'EUR' },
+            description: 'Donazione – Laboratorio Tecnico ODV' + (cf ? ' | CF: ' + cf : '')
+          };
+          if (cf) unit.custom_id = cf;
+          return actions.order.create({
+            application_context: { shipping_preference: 'NO_SHIPPING' },
+            purchase_units: [unit]
+          });
+        },
+
+
+        onApprove(data, actions) {
+          return actions.order.capture().then(async details => {
+            const firstName = details.payer?.name?.given_name ?? '';
+            const fullName  = ((details.payer?.name?.given_name ?? '') + ' ' + (details.payer?.name?.surname ?? '')).trim();
+            const email     = details.payer?.email_address ?? '';
+            const capture   = details.purchase_units?.[0]?.payments?.captures?.[0];
+            const amount    = capture?.amount?.value ?? currentAmount;
+            const cf        = document.getElementById('donor-cf').value.trim().toUpperCase();
+            const txId      = details.id ?? '';
+            const rawDate   = capture?.create_time ?? new Date().toISOString();
+            const d         = new Date(rawDate);
+            const pad       = n => String(n).padStart(2, '0');
+            const dataStr   = pad(d.getDate()) + pad(d.getMonth() + 1) + d.getFullYear();
+            try {
+              const fd = new FormData();
+              fd.append('_subject', 'Donazione Paypal ricevuta - ' + (fullName || 'Anonimo') + ' - EUR ' + amount);
+              fd.append('Nome donatore', fullName || 'Non disponibile');
+              fd.append('Email', email);
+              fd.append('Data donazione', dataStr);
+              fd.append('Importo donato', 'EUR ' + amount);
+              fd.append('Codice Fiscale', cf || 'Non fornito');
+              fd.append('ID transazione PayPal', txId);
+              await fetch('https://formspree.io/f/xlgvrrbk', {
+                method: 'POST',
+                headers: { 'Accept': 'application/json' },
+                body: fd
+              });
+            } catch {}
+            document.getElementById('paypal-button-container').innerHTML =
+              '<p style="color:var(--blue);font-weight:800;font-size:1.05rem;padding:1rem 0">💙 Grazie' + (firstName ? ' ' + firstName : '') + '! La tua donazione è stata ricevuta.</p>';
+          });
+        },
+        onError(err) {
+          console.error('PayPal error:', err);
+        }
+      }).render('#paypal-button-container');
+    }
+
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
     window.addEventListener('scroll', () => {
