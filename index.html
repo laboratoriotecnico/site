@@ -151,7 +151,7 @@
     .hero-cloud-2 { width: 140px; height: 44px; top: 30%; left: 12%; }
     .hero-inner {
       position: relative; z-index: 2;
-      max-width: 1100px; margin: 0 auto; width: 100%;
+      max-width: calc(1100px + 5rem); margin: 0 auto; width: 100%;
       padding: 0 2.5rem;
       display: grid; grid-template-columns: 1fr 1fr;
       gap: 3rem; align-items: stretch;
@@ -302,8 +302,8 @@
       .hero-inner, .about-grid, .act-grid, .cinque-wrap, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
       nav { padding: .9rem 1.5rem; }
       .nav-links { display: none; }
-      #hero { padding: 3.5rem 1.5rem 0; min-height: auto; }
-      .hero-inner { padding-bottom: 3rem; }
+      #hero { padding: 3.5rem 0 0; min-height: auto; }
+      .hero-inner { padding: 0 1.5rem 3rem; }
       #chi-siamo, #attivita, #dona, #contatti, #cinquexmille { padding: 4rem 1.5rem; }
       .cinque-wrap { padding: 2.5rem 1.5rem; }
       .dona-amounts { grid-template-columns: repeat(2, 1fr); }
