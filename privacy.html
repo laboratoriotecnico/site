@@ -26,6 +26,7 @@
     .nav-logo { display: flex; align-items: center; text-decoration: none; }
     .nav-back { font-size: .85rem; font-weight: 700; color: var(--blue); text-decoration: none; }
     .nav-back:hover { text-decoration: underline; }
+    .nav-logo-img { width: auto; display: block; }
 
     .page-header {
       background: linear-gradient(135deg, var(--blue-dk), var(--blue));
@@ -63,6 +64,7 @@
 
     footer { background: var(--dark); padding: 3rem 2.5rem; margin-top: 4rem; }
     .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-direction: column; text-align: center; gap: 1.5rem; }
+    .footer-copy-group { display: flex; flex-direction: column; gap: .35rem; text-align: center; }
     .footer-copy { font-size: .72rem; font-weight: 600; color: rgba(255,255,255,.45); line-height: 1.6; margin: 0; }
     .footer-links { display: flex; gap: 1.5rem; }
     .footer-links a { font-size: .78rem; font-weight: 700; color: rgba(255,255,255,.5); text-decoration: none; }
@@ -75,7 +77,7 @@
 
   <nav>
     <a class="nav-logo" href="index.html">
-      <img src="images/logo.svg" alt="Associazione Educativa Laboratorio Tecnico ODV" height="38" style="width:auto;display:block;" />
+      <img src="images/logo.svg" alt="Associazione Educativa Laboratorio Tecnico ODV" height="38" class="nav-logo-img" />
     </a>
     <a class="nav-back" href="index.html">← Torna al sito</a>
   </nav>
@@ -173,7 +175,7 @@
 
   <footer>
     <div class="footer-inner">
-      <div style="display:flex;flex-direction:column;gap:.35rem;text-align:center">
+      <div class="footer-copy-group">
         <p class="footer-copy">© 1985–2026 Associazione Educativa Laboratorio Tecnico ODV<br class="mobile-br"><span class="mobile-hide"> · </span>Via Filippo Marchetti 1, 60125 Ancona (AN) · C.F. 93026570429</p>
         <p class="footer-copy">Iscritta al Registro Unico Nazionale del Terzo Settore<br class="mobile-br"><span class="mobile-hide"> · </span>Sezione Organizzazioni di Volontariato, repertorio n. 80820 dal 21/11/2022</p>
       </div>
