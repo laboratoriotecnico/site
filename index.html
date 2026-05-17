@@ -188,11 +188,11 @@
     .hero-card {
       background: rgba(255,255,255,.15); border: 1.5px solid rgba(255,255,255,.25);
       border-radius: var(--r-lg); padding: 1.5rem 1.8rem;
-      backdrop-filter: blur(6px); color: #fff;
+      backdrop-filter: blur(6px); color: #fff; flex: 1;
     }
     .hero-card-num { font-size: 2.4rem; font-weight: 900; line-height: 1; color: var(--sun); }
     .hero-card-label { font-size: .78rem; font-weight: 700; color: rgba(255,255,255,.75); margin-top: .2rem; }
-    .hero-cards-row { display: flex; gap: 1rem; width: 100%; justify-content: flex-end; }
+    .hero-cards-row { display: flex; gap: 1rem; width: 100%; max-width: 650px; justify-content: flex-end; }
 
     /* ── SECTIONS BASE ── */
     .section-label {
@@ -281,7 +281,7 @@
     .contact-form-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
     @media (max-width:900px) {
       .contact-form-grid { grid-template-columns:1fr; }
-      .contact-form-grid [style*="grid-column:1/-1"] { grid-column:1; }
+      .contact-form-grid .col-full { grid-column:1; }
     }
     @media (max-width:900px) {
       .footer-inner { flex-direction: column; text-align: center; }
@@ -311,7 +311,7 @@
       .sticky-dona { bottom: 16px; right: 16px; padding: 12px 20px; font-size: .9rem; }
     }
     /* ── COOKIE BANNER ── */
-    #cookie-banner { position:fixed;bottom:0;left:0;right:0;z-index:1001;background:var(--dark);padding:1.2rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;box-shadow:0 -4px 24px rgba(0,0,0,.3); }
+    #cookie-banner { position:fixed;bottom:0;left:0;right:0;z-index:1001;background:var(--dark);padding:1.2rem 2rem;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;box-shadow:0 -4px 24px rgba(0,0,0,.3); }
     #cookie-banner p { font-size:.83rem;font-weight:600;color:rgba(255,255,255,.75);margin:0;flex:1;min-width:180px;line-height:1.6; }
     #cookie-banner a { color:var(--sky); }
     .cookie-btns { display:flex;gap:.75rem;flex-shrink:0; }
@@ -319,6 +319,68 @@
     .cookie-btn-ok:hover { background:var(--blue-dk); }
     .cookie-btn-no { background:transparent;color:rgba(255,255,255,.6);border:1.5px solid rgba(255,255,255,.25);border-radius:50px;padding:.55rem 1.2rem;font-family:'Nunito',system-ui,sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:color .15s,border-color .15s; }
     .cookie-btn-no:hover { color:#fff;border-color:rgba(255,255,255,.5); }
+
+    /* ── INLINE → CLASSI ── */
+    .hidden { display: none; }
+    .nav-logo-img { width: auto; display: block; }
+    .hero-img { width: 100%; max-width: 650px; border-radius: 28px; display: block; }
+    .wave-white { background: white; }
+    .wave-sky { background: #EAF5FD; }
+    .c-white { color: #fff; }
+    .c-dark { color: var(--dark); }
+    .link-blue { color: var(--blue); }
+    .mt-r08 { margin-top: .8rem; }
+    .cinque-em { color: rgba(255,255,255,.9); font-style: normal; font-weight: 700; }
+    .amount-custom { display: flex; align-items: center; border: 2px solid var(--sky-mid); border-radius: var(--r); overflow: hidden; }
+    .amount-custom-cur { padding: .6rem .7rem; font-size: 1rem; font-weight: 800; color: var(--blue); background: var(--sky-lt); }
+    .amount-custom-input { border: none; outline: none; padding: .65rem .5rem; font-size: .95rem; font-weight: 700; color: var(--dark); width: 80px; background: white; }
+    .donor-cf-row { margin-bottom: 1rem; text-align: left; }
+    .donor-cf-label { display: block; font-size: .8rem; font-weight: 800; color: var(--blue); margin-bottom: .4rem; }
+    .donor-cf-hint { font-weight: 600; color: var(--muted); }
+    .donor-cf-input { width: 100%; box-sizing: border-box; border: 2px solid var(--sky-mid); border-radius: var(--r); padding: .65rem 1rem; font-size: .95rem; font-weight: 700; color: var(--dark); font-family: 'Nunito', system-ui, sans-serif; outline: none; transition: border-color .15s; }
+    .donor-cf-input:focus { border-color: var(--blue); }
+    .pp-no-consent { padding: 1rem 1.2rem; background: var(--sky-lt); border-radius: var(--r); border: 2px solid var(--sky-mid); text-align: center; margin-bottom: .5rem; }
+    .pp-no-consent-text { font-size: .88rem; font-weight: 700; color: var(--muted); margin-bottom: .6rem; }
+    .btn-accept { background: var(--blue); color: #fff; border: none; cursor: pointer; font-size: .85rem; font-weight: 800; padding: .5rem 1.3rem; border-radius: 50px; font-family: 'Nunito', system-ui, sans-serif; }
+    .dona-bonifico { margin-top: 1.2rem; padding: 1.2rem 1.4rem; background: var(--sky-lt); border-radius: var(--r); border-left: 4px solid var(--sky); text-align: left; }
+    .dona-fiscal { margin-top: 1.5rem; padding: 1.2rem 1.4rem; background: var(--sky-lt); border-radius: var(--r); border-left: 4px solid var(--blue); text-align: left; }
+    .dona-box-title { font-size: .82rem; font-weight: 800; color: var(--blue); margin-bottom: .6rem; }
+    .dona-box-title-sm { font-size: .82rem; font-weight: 800; color: var(--blue); margin-bottom: .4rem; }
+    .dona-box-line { font-size: .8rem; font-weight: 600; color: var(--muted); margin-bottom: .3rem; }
+    .iban-row { display: flex; align-items: center; gap: .6rem; margin-top: .5rem; flex-wrap: wrap; }
+    .iban-code { font-size: .85rem; font-weight: 800; color: var(--dark); background: white; padding: .4rem .8rem; border-radius: 8px; border: 1.5px solid var(--sky-mid); letter-spacing: .04em; }
+    .btn-copy-iban { background: var(--blue); color: #fff; border: none; cursor: pointer; font-size: .78rem; font-weight: 800; padding: .4rem 1rem; border-radius: 50px; white-space: nowrap; }
+    .dona-box-note { font-size: .75rem; font-weight: 600; color: var(--muted); margin-top: .5rem; opacity: .8; }
+    .dona-fiscal-p0 { font-size: .8rem; font-weight: 600; color: var(--muted); line-height: 1.7; margin: 0; }
+    .dona-fiscal-p { font-size: .8rem; font-weight: 600; color: var(--muted); line-height: 1.7; margin: .5rem 0 0; }
+    .dona-fiscal-list { font-size: .8rem; font-weight: 600; color: var(--muted); line-height: 1.8; margin: .5rem 0 .5rem 1.2rem; padding: 0; }
+    .dona-fiscal-fine { font-size: .75rem; font-weight: 600; color: var(--muted); margin: 0; opacity: .75; }
+    .map-wrap { border-radius: var(--r-lg); overflow: hidden; height: 300px; border: 2px solid var(--sky-mid); }
+    .map-placeholder { height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem; text-align: center; padding: 1.5rem; background: var(--sky-lt); }
+    .map-ph-text { font-size: .9rem; font-weight: 700; color: var(--muted); margin: 0; }
+    .map-iframe { border: 0; display: block; }
+    .contact-form-box { margin-top: 3rem; background: var(--sky-lt); border-radius: var(--r-lg); padding: 2.5rem 2.5rem 2rem; }
+    .contact-form-box .section-label { margin-bottom: .8rem; }
+    .contact-form-title { font-size: 1.4rem; font-weight: 900; margin-bottom: .5rem; color: var(--dark); }
+    .contact-form-sub { font-size: .9rem; font-weight: 600; color: var(--muted); margin-bottom: 1.8rem; }
+    .field-group { display: flex; flex-direction: column; gap: .4rem; }
+    .col-full { grid-column: 1 / -1; }
+    .field-label { font-size: .75rem; font-weight: 800; color: var(--blue); letter-spacing: .1em; text-transform: uppercase; }
+    .field { padding: .75rem 1rem; border: 2px solid var(--sky-mid); border-radius: var(--r); font-size: .92rem; font-weight: 600; outline: none; transition: border-color .2s; }
+    .field:focus { border-color: var(--blue); }
+    .field--select { background: white; }
+    .field--textarea { resize: vertical; }
+    .form-actions { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .form-privacy { font-size: .75rem; font-weight: 600; color: var(--muted); }
+    .btn-submit { background: var(--blue); color: #fff; border: none; cursor: pointer; font-size: .95rem; font-weight: 800; padding: .8rem 2rem; border-radius: 50px; transition: background .2s; white-space: nowrap; }
+    .btn-submit:hover { background: var(--blue-dk); }
+    .form-feedback { padding: .9rem 1.2rem; border-radius: var(--r); font-size: .88rem; font-weight: 700; }
+    .footer-inner { flex-direction: column; text-align: center; gap: 1.5rem; }
+    .footer-copy-group { display: flex; flex-direction: column; gap: .35rem; text-align: center; }
+    .dona-thanks { color: var(--blue); font-weight: 800; font-size: 1.05rem; padding: 1rem 0; }
+    .pp-fallback { padding: 1rem 1.2rem; background: var(--sky-lt); border-radius: var(--r); border: 2px solid var(--sky-mid); text-align: center; }
+    .pp-fallback-text { font-size: .88rem; font-weight: 700; color: var(--muted); margin: 0; }
+    .pp-fallback-link { color: var(--blue); font-weight: 800; }
   </style>
 </head>
 <body>
@@ -332,7 +394,7 @@
   <!-- NAV -->
   <nav>
     <a class="nav-logo" href="#hero">
-      <img src="images/logo.svg" alt="Associazione Educativa Laboratorio Tecnico ODV" height="38" style="width:auto;display:block;" />
+      <img src="images/logo.svg" alt="Associazione Educativa Laboratorio Tecnico ODV" height="38" class="nav-logo-img" />
     </a>
     <ul class="nav-links">
       <li><a href="#chi-siamo">Chi siamo</a></li>
@@ -368,14 +430,14 @@
           <img
             src="images/bambini.png"
             alt="Due bambini che giocano"
-            style="width:100%;max-width:650px;border-radius:28px;display:block;"
+            class="hero-img"
           />
-          <div class="hero-cards-row" style="width:100%;max-width:650px;">
-            <div class="hero-card" style="flex:1">
+          <div class="hero-cards-row">
+            <div class="hero-card">
               <div class="hero-card-num">ODV</div>
               <div class="hero-card-label">Organizzazione<br>di volontariato</div>
             </div>
-            <div class="hero-card" style="flex:1">
+            <div class="hero-card">
               <div class="hero-card-num">1985</div>
               <div class="hero-card-label">Anno di<br>fondazione</div>
             </div>
@@ -399,7 +461,7 @@
           <div class="about-chips">
             <span class="chip">Educazione minori</span>
             <span class="chip">Disabilità</span>
-            <span class="chip" style="background:var(--sky-lt);color:var(--blue)">ODV</span>
+            <span class="chip">ODV</span>
             <span class="chip">RUNTS</span>
             <span class="chip red">Ancona</span>
           </div>
@@ -417,7 +479,7 @@
     </div>
   </section>
 
-  <svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="background:white"><path d="M0,30 C480,60 960,0 1440,30 L1440,60 L0,60 Z" fill="#EAF5FD"/></svg>
+  <svg class="wave wave-white" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,30 C480,60 960,0 1440,30 L1440,60 L0,60 Z" fill="#EAF5FD"/></svg>
 
   <!-- ATTIVITÀ -->
   <section id="attivita">
@@ -445,7 +507,7 @@
     </div>
   </section>
 
-  <svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="background:#EAF5FD"><path d="M0,0 C480,60 960,0 1440,30 L1440,60 L0,60 Z" fill="white"/></svg>
+  <svg class="wave wave-sky" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,0 C480,60 960,0 1440,30 L1440,60 L0,60 Z" fill="white"/></svg>
 
   <!-- 5x1000 -->
   <section id="cinquexmille">
@@ -454,8 +516,8 @@
       <div class="cinque-text">
         <span class="section-label">5×1000</span>
         <h2 class="section-title">Destinaci il tuo<br>5×1000</h2>
-        <p>Ogni anno, nella dichiarazione dei redditi, puoi destinare il tuo 5×1000 a <strong style="color:#fff">Associazione Educativa Laboratorio Tecnico ODV</strong> senza spendere nulla in più. È una quota delle tasse che lo Stato ti chiede comunque: sei tu a decidere a chi va.</p>
-        <p style="margin-top:.8rem">Scrivi il nostro codice fiscale nel riquadro <em style="color:rgba(255,255,255,.9);font-style:normal;font-weight:700">"Sostegno degli enti del Terzo Settore iscritti nel RUNTS"</em>.</p>
+        <p>Ogni anno, nella dichiarazione dei redditi, puoi destinare il tuo 5×1000 a <strong class="c-white">Associazione Educativa Laboratorio Tecnico ODV</strong> senza spendere nulla in più. È una quota delle tasse che lo Stato ti chiede comunque: sei tu a decidere a chi va.</p>
+        <p class="mt-r08">Scrivi il nostro codice fiscale nel riquadro <em class="cinque-em">"Sostegno degli enti del Terzo Settore iscritti nel RUNTS"</em>.</p>
       </div>
       <div class="cinque-box">
         <h3>Il nostro codice fiscale</h3>
@@ -466,7 +528,7 @@
     </div>
   </section>
 
-  <svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="background:white"><path d="M0,30 C360,0 1080,60 1440,20 L1440,60 L0,60 Z" fill="#EAF5FD"/></svg>
+  <svg class="wave wave-white" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,30 C360,0 1080,60 1440,20 L1440,60 L0,60 Z" fill="#EAF5FD"/></svg>
 
   <!-- DONA -->
   <section id="dona">
@@ -480,8 +542,8 @@
           <button class="amount-btn active" onclick="selectAmount(this,25)">€ 25</button>
           <button class="amount-btn" onclick="selectAmount(this,50)">€ 50</button>
           <button class="amount-btn" onclick="selectAmount(this,100)">€ 100</button>
-          <div style="display:flex;align-items:center;border:2px solid var(--sky-mid);border-radius:var(--r);overflow:hidden;">
-            <span style="padding:.6rem .7rem;font-size:1rem;font-weight:800;color:var(--blue);background:var(--sky-lt)">€</span>
+          <div class="amount-custom">
+            <span class="amount-custom-cur">€</span>
             <input
               id="custom-amount"
               type="number"
@@ -489,58 +551,56 @@
               placeholder="altro"
               aria-label="Importo libero in euro"
               oninput="setCustomAmount(this.value)"
-              style="border:none;outline:none;padding:.65rem .5rem;font-size:.95rem;font-weight:700;color:var(--dark);width:80px;background:white"
+              class="amount-custom-input"
             />
           </div>
         </div>
-        <div style="margin-bottom:1rem;text-align:left">
-          <label for="donor-cf" style="display:block;font-size:.8rem;font-weight:800;color:var(--blue);margin-bottom:.4rem">Codice fiscale <span style="font-weight:600;color:var(--muted)">(persona fisica o giuridica — necessario per la detrazione fiscale)</span></label>
+        <div class="donor-cf-row">
+          <label for="donor-cf" class="donor-cf-label">Codice fiscale <span class="donor-cf-hint">(persona fisica o giuridica — necessario per la detrazione fiscale)</span></label>
           <input
             id="donor-cf"
             type="text"
             maxlength="16"
             placeholder="RSSMRA80A01H501A o 12345678901"
             autocomplete="on"
-            style="width:100%;box-sizing:border-box;border:2px solid var(--sky-mid);border-radius:var(--r);padding:.65rem 1rem;font-size:.95rem;font-weight:700;color:var(--dark);font-family:'Nunito',system-ui,sans-serif;outline:none;transition:border-color .15s"
-            onfocus="this.style.borderColor='var(--blue)'"
-            onblur="this.style.borderColor='var(--sky-mid)'"
+            class="donor-cf-input"
           />
         </div>
-        <div id="paypal-no-consent" style="display:none;padding:1rem 1.2rem;background:var(--sky-lt);border-radius:var(--r);border:2px solid var(--sky-mid);text-align:center;margin-bottom:.5rem">
-          <p style="font-size:.88rem;font-weight:700;color:var(--muted);margin-bottom:.6rem">I pulsanti PayPal richiedono cookie di terze parti.</p>
-          <button onclick="cookieChoice('accepted')" style="background:var(--blue);color:#fff;border:none;cursor:pointer;font-size:.85rem;font-weight:800;padding:.5rem 1.3rem;border-radius:50px;font-family:'Nunito',system-ui,sans-serif">Accetta cookie</button>
+        <div id="paypal-no-consent" class="pp-no-consent hidden">
+          <p class="pp-no-consent-text">I pulsanti PayPal richiedono cookie di terze parti.</p>
+          <button onclick="cookieChoice('accepted')" class="btn-accept">Accetta cookie</button>
         </div>
         <div id="paypal-button-container"></div>
         <p class="dona-note">🔒 Transazione sicura. Puoi donare anche senza un account PayPal.</p>
 
         <!-- BONIFICO -->
-        <div style="margin-top:1.2rem;padding:1.2rem 1.4rem;background:var(--sky-lt);border-radius:var(--r);border-left:4px solid var(--sky);text-align:left">
-          <p style="font-size:.82rem;font-weight:800;color:var(--blue);margin-bottom:.6rem">🏦 Oppure dona tramite bonifico bancario</p>
-          <p style="font-size:.8rem;font-weight:600;color:var(--muted);margin-bottom:.3rem">Intestatario: <strong style="color:var(--dark)">Associazione Educativa Laboratorio Tecnico ODV</strong></p>
-          <p style="font-size:.8rem;font-weight:600;color:var(--muted);margin-bottom:.3rem">Banca: <strong style="color:var(--dark)">Intesa Sanpaolo</strong> · Filiale Accentrata · Piazza Paolo Ferrari 10</p>
-          <div style="display:flex;align-items:center;gap:.6rem;margin-top:.5rem;flex-wrap:wrap">
-            <code id="iban-text" style="font-size:.85rem;font-weight:800;color:var(--dark);background:white;padding:.4rem .8rem;border-radius:8px;border:1.5px solid var(--sky-mid);letter-spacing:.04em">IT51R0306909606100000013451</code>
-            <button class="btn-copy-iban" onclick="copyIBAN()" style="background:var(--blue);color:#fff;border:none;cursor:pointer;font-size:.78rem;font-weight:800;padding:.4rem 1rem;border-radius:50px;white-space:nowrap">📋 Copia IBAN</button>
+        <div class="dona-bonifico">
+          <p class="dona-box-title">🏦 Oppure dona tramite bonifico bancario</p>
+          <p class="dona-box-line">Intestatario: <strong class="c-dark">Associazione Educativa Laboratorio Tecnico ODV</strong></p>
+          <p class="dona-box-line">Banca: <strong class="c-dark">Intesa Sanpaolo</strong> · Filiale Accentrata · Piazza Paolo Ferrari 10</p>
+          <div class="iban-row">
+            <code id="iban-text" class="iban-code">IT51R0306909606100000013451</code>
+            <button class="btn-copy-iban" onclick="copyIBAN()">📋 Copia IBAN</button>
           </div>
-          <p style="font-size:.75rem;font-weight:600;color:var(--muted);margin-top:.5rem;opacity:.8">Causale: <em>Donazione liberale + il tuo codice fiscale</em></p>
+          <p class="dona-box-note">Causale: <em>Donazione liberale + il tuo codice fiscale</em></p>
         </div>
-        <div style="margin-top:1.5rem;padding:1.2rem 1.4rem;background:var(--sky-lt);border-radius:var(--r);border-left:4px solid var(--blue);text-align:left">
-          <p style="font-size:.82rem;font-weight:800;color:var(--blue);margin-bottom:.4rem">💰 Vantaggi fiscali per il donatore</p>
-          <p style="font-size:.8rem;font-weight:600;color:var(--muted);line-height:1.7;margin:0">
-            In quanto <strong style="color:var(--dark)">ODV iscritta al RUNTS</strong>, le donazioni a Associazione Educativa Laboratorio Tecnico ODV danno diritto, in alternativa, a:
+        <div class="dona-fiscal">
+          <p class="dona-box-title-sm">💰 Vantaggi fiscali per il donatore</p>
+          <p class="dona-fiscal-p0">
+            In quanto <strong class="c-dark">ODV iscritta al RUNTS</strong>, le donazioni a Associazione Educativa Laboratorio Tecnico ODV danno diritto, in alternativa, a:
           </p>
-          <ul style="font-size:.8rem;font-weight:600;color:var(--muted);line-height:1.8;margin:.5rem 0 .5rem 1.2rem;padding:0">
-            <li><strong style="color:var(--dark)">Detrazione IRPEF del 35%</strong> dell'importo donato, fino a €30.000 annui</li>
-            <li><strong style="color:var(--dark)">Deduzione dal reddito complessivo</strong> nel limite del 10% del reddito dichiarato (max €70.000 annui)</li>
+          <ul class="dona-fiscal-list">
+            <li><strong class="c-dark">Detrazione IRPEF del 35%</strong> dell'importo donato, fino a €30.000 annui</li>
+            <li><strong class="c-dark">Deduzione dal reddito complessivo</strong> nel limite del 10% del reddito dichiarato (max €70.000 annui)</li>
           </ul>
-          <p style="font-size:.8rem;font-weight:600;color:var(--muted);line-height:1.7;margin:.5rem 0 0">Per usufruire del beneficio, indica il <strong style="color:var(--dark)">tuo codice fiscale</strong> nella causale del bonifico o nella nota del pagamento PayPal: la donazione apparirà automaticamente nella dichiarazione dei redditi precompilata.</p>
-          <p style="font-size:.75rem;font-weight:600;color:var(--muted);margin:0;opacity:.75">Art. 83, D.Lgs. 117/2017 – Codice del Terzo Settore. Conservare la ricevuta della donazione.</p>
+          <p class="dona-fiscal-p">Per usufruire del beneficio, indica il <strong class="c-dark">tuo codice fiscale</strong> nella causale del bonifico o nella nota del pagamento PayPal: la donazione apparirà automaticamente nella dichiarazione dei redditi precompilata.</p>
+          <p class="dona-fiscal-fine">Art. 83, D.Lgs. 117/2017 – Codice del Terzo Settore. Conservare la ricevuta della donazione.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="background:#EAF5FD"><path d="M0,40 C480,0 960,60 1440,20 L1440,60 L0,60 Z" fill="white"/></svg>
+  <svg class="wave wave-sky" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C480,0 960,60 1440,20 L1440,60 L0,60 Z" fill="white"/></svg>
 
   <!-- CONTATTI -->
   <section id="contatti">
@@ -586,19 +646,19 @@
             <div><p class="contact-k">Codice Fiscale</p><p class="contact-v">93026570429</p></div>
           </div>
         </div>
-        <div id="map-wrap" style="border-radius:var(--r-lg);overflow:hidden;height:300px;border:2px solid var(--sky-mid)">
-          <div id="map-placeholder" style="height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;text-align:center;padding:1.5rem;background:var(--sky-lt)">
-            <p style="font-size:.9rem;font-weight:700;color:var(--muted);margin:0">La mappa richiede cookie di Google.<br>Accetta i cookie per visualizzarla.</p>
-            <button onclick="cookieChoice('accepted')" style="background:var(--blue);color:#fff;border:none;cursor:pointer;font-size:.85rem;font-weight:800;padding:.5rem 1.3rem;border-radius:50px;font-family:'Nunito',system-ui,sans-serif">Accetta cookie</button>
+        <div id="map-wrap" class="map-wrap">
+          <div id="map-placeholder" class="map-placeholder">
+            <p class="map-ph-text">La mappa richiede cookie di Google.<br>Accetta i cookie per visualizzarla.</p>
+            <button onclick="cookieChoice('accepted')" class="btn-accept">Accetta cookie</button>
           </div>
         </div>
       </div>
 
       <!-- FORM DI CONTATTO -->
-      <div style="margin-top:3rem;background:var(--sky-lt);border-radius:var(--r-lg);padding:2.5rem 2.5rem 2rem">
-        <p class="section-label" style="margin-bottom:.8rem">Scrivici</p>
-        <h3 style="font-size:1.4rem;font-weight:900;margin-bottom:.5rem;color:var(--dark)">Mandaci un messaggio</h3>
-        <p style="font-size:.9rem;font-weight:600;color:var(--muted);margin-bottom:1.8rem">Compila il modulo e ti risponderemo il prima possibile.</p>
+      <div class="contact-form-box">
+        <p class="section-label">Scrivici</p>
+        <h3 class="contact-form-title">Mandaci un messaggio</h3>
+        <p class="contact-form-sub">Compila il modulo e ti risponderemo il prima possibile.</p>
 
         <form id="contact-form"
           action="https://formspree.io/f/xkoewwpg"
@@ -606,37 +666,33 @@
           class="contact-form-grid">
 
           <!-- Honeypot antispam (nascosto ai browser, visibile ai bot) -->
-          <input type="text" name="_gotcha" aria-hidden="true" aria-label="Non compilare" style="display:none" tabindex="-1" autocomplete="off" />
+          <input type="text" name="_gotcha" aria-hidden="true" aria-label="Non compilare" class="hidden" tabindex="-1" autocomplete="off" />
           <!-- Redirect dopo invio -->
           <input type="hidden" name="_next" value="https://laboratoriotecnico.eu/?grazie=1" />
           <input type="hidden" name="_subject" id="contact-subject" value="Messaggio ricevuto" />
 
-          <div style="display:flex;flex-direction:column;gap:.4rem">
-            <label for="f-nome" style="font-size:.75rem;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase">Nome *</label>
+          <div class="field-group">
+            <label for="f-nome" class="field-label">Nome *</label>
             <input id="f-nome" type="text" name="Nome" required placeholder="Il tuo nome"
-              style="padding:.75rem 1rem;border:2px solid var(--sky-mid);border-radius:var(--r);font-size:.92rem;font-weight:600;outline:none;transition:border-color .2s"
-              onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--sky-mid)'" />
+              class="field" />
           </div>
 
-          <div style="display:flex;flex-direction:column;gap:.4rem">
-            <label for="f-email" style="font-size:.75rem;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase">Email *</label>
+          <div class="field-group">
+            <label for="f-email" class="field-label">Email *</label>
             <input id="f-email" type="email" name="Email" required placeholder="La tua email"
-              style="padding:.75rem 1rem;border:2px solid var(--sky-mid);border-radius:var(--r);font-size:.92rem;font-weight:600;outline:none;transition:border-color .2s"
-              onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--sky-mid)'" />
+              class="field" />
           </div>
 
-          <div style="display:flex;flex-direction:column;gap:.4rem">
-            <label for="f-telefono" style="font-size:.75rem;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase">Telefono</label>
+          <div class="field-group">
+            <label for="f-telefono" class="field-label">Telefono</label>
             <input id="f-telefono" type="tel" name="Telefono" placeholder="Opzionale"
-              style="padding:.75rem 1rem;border:2px solid var(--sky-mid);border-radius:var(--r);font-size:.92rem;font-weight:600;outline:none;transition:border-color .2s"
-              onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--sky-mid)'" />
+              class="field" />
           </div>
 
-          <div style="display:flex;flex-direction:column;gap:.4rem">
-            <label for="f-oggetto" style="font-size:.75rem;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase">Oggetto</label>
+          <div class="field-group">
+            <label for="f-oggetto" class="field-label">Oggetto</label>
             <select id="f-oggetto" name="Oggetto"
-              style="padding:.75rem 1rem;border:2px solid var(--sky-mid);border-radius:var(--r);font-size:.92rem;font-weight:600;outline:none;background:white;transition:border-color .2s"
-              onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--sky-mid)'">
+              class="field field--select">
               <option value="">Seleziona...</option>
               <option>Informazioni generali</option>
               <option>Attività educative</option>
@@ -647,29 +703,26 @@
             </select>
           </div>
 
-          <div style="display:flex;flex-direction:column;gap:.4rem;grid-column:1/-1">
-            <label for="f-messaggio" style="font-size:.75rem;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase">Messaggio *</label>
+          <div class="field-group col-full">
+            <label for="f-messaggio" class="field-label">Messaggio *</label>
             <textarea id="f-messaggio" name="Messaggio" required rows="5" placeholder="Scrivi qui il tuo messaggio..."
-              style="padding:.75rem 1rem;border:2px solid var(--sky-mid);border-radius:var(--r);font-size:.92rem;font-weight:600;outline:none;resize:vertical;transition:border-color .2s"
-              onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--sky-mid)'"></textarea>
+              class="field field--textarea"></textarea>
           </div>
 
-          <div style="grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
-            <p style="font-size:.75rem;font-weight:600;color:var(--muted)">* campi obbligatori · I tuoi dati sono trattati ai sensi della nostra <a href="privacy.html" style="color:var(--blue)">Privacy Policy</a></p>
-            <button type="submit" id="submit-btn"
-              style="background:var(--blue);color:#fff;border:none;cursor:pointer;font-size:.95rem;font-weight:800;padding:.8rem 2rem;border-radius:50px;transition:background .2s;white-space:nowrap"
-              onmouseover="this.style.background='var(--blue-dk)'" onmouseout="this.style.background='var(--blue)'">
+          <div class="form-actions col-full">
+            <p class="form-privacy">* campi obbligatori · I tuoi dati sono trattati ai sensi della nostra <a href="privacy.html" class="link-blue">Privacy Policy</a></p>
+            <button type="submit" id="submit-btn" class="btn-submit">
               Invia messaggio →
             </button>
           </div>
 
-          <div id="form-feedback" style="grid-column:1/-1;display:none;padding:.9rem 1.2rem;border-radius:var(--r);font-size:.88rem;font-weight:700"></div>
+          <div id="form-feedback" class="form-feedback col-full hidden"></div>
         </form>
       </div>
     </div>
   </section>
 
-  <div id="cookie-banner" style="display:none" role="dialog" aria-label="Preferenze cookie">
+  <div id="cookie-banner" class="hidden" role="dialog" aria-label="Preferenze cookie">
     <p>Utilizziamo cookie di terze parti (PayPal, Google Maps) per la donazione e la mappa interattiva. <a href="privacy.html">Privacy Policy</a></p>
     <div class="cookie-btns">
       <button class="cookie-btn-no" onclick="cookieChoice('rejected')">Solo necessari</button>
@@ -678,8 +731,8 @@
   </div>
 
   <footer>
-    <div class="footer-inner" style="flex-direction:column;text-align:center;gap:1.5rem">
-      <div style="display:flex;flex-direction:column;gap:.35rem;text-align:center">
+    <div class="footer-inner">
+      <div class="footer-copy-group">
         <p class="footer-copy">© 1985–2026 Associazione Educativa Laboratorio Tecnico ODV<br class="mobile-br"><span class="mobile-hide"> · </span>Via Filippo Marchetti 1, 60125 Ancona (AN) · C.F. 93026570429</p>
         <p class="footer-copy">Iscritta al Registro Unico Nazionale del Terzo Settore<br class="mobile-br"><span class="mobile-hide"> · </span>Sezione Organizzazioni di Volontariato, repertorio n. 80820 dal 21/11/2022</p>
       </div>
@@ -705,10 +758,10 @@
       const container = document.getElementById('paypal-button-container');
       if (!container) return;
       container.innerHTML =
-        '<div style="padding:1rem 1.2rem;background:var(--sky-lt);border-radius:var(--r);border:2px solid var(--sky-mid);text-align:center">' +
-        '<p style="font-size:.88rem;font-weight:700;color:var(--muted);margin:0">Pagamento online momentaneamente non disponibile. ' +
-        'Puoi donare con <strong style="color:var(--dark)">bonifico bancario</strong> (vedi qui sotto) o scrivici a ' +
-        '<a href="mailto:info@laboratoriotecnico.eu" style="color:var(--blue);font-weight:800">info@laboratoriotecnico.eu</a>.</p></div>';
+        '<div class="pp-fallback">' +
+        '<p class="pp-fallback-text">Pagamento online momentaneamente non disponibile. ' +
+        'Puoi donare con <strong class="c-dark">bonifico bancario</strong> (vedi qui sotto) o scrivici a ' +
+        '<a href="mailto:info@laboratoriotecnico.eu" class="pp-fallback-link">info@laboratoriotecnico.eu</a>.</p></div>';
     }
     function loadThirdParty() {
       const s = document.createElement('script');
@@ -717,12 +770,14 @@
       s.onerror = paypalFallback;
       document.head.appendChild(s);
       document.getElementById('paypal-no-consent').style.display = 'none';
-      document.getElementById('map-placeholder').innerHTML =
+      const mp = document.getElementById('map-placeholder');
+      mp.innerHTML =
         '<iframe title="Sede Associazione Educativa Laboratorio Tecnico ODV"' +
         ' src="https://www.google.com/maps?q=43.6089572,13.5033201&z=13&output=embed"' +
-        ' width="100%" height="100%" style="border:0;display:block" allowfullscreen' +
+        ' width="100%" height="100%" class="map-iframe" allowfullscreen' +
         ' loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>';
-      document.getElementById('map-placeholder').style.cssText = 'height:100%';
+      mp.classList.remove('map-placeholder');
+      mp.style.height = '100%';
     }
     function initPayPal() {
       paypal.Buttons({
@@ -770,7 +825,7 @@
             const container = document.getElementById('paypal-button-container');
             container.innerHTML = '';
             const p = document.createElement('p');
-            p.style.cssText = 'color:var(--blue);font-weight:800;font-size:1.05rem;padding:1rem 0';
+            p.className = 'dona-thanks';
             p.textContent = '💙 Grazie' + (firstName ? ' ' + firstName : '') + '! La tua donazione è stata ricevuta.';
             container.appendChild(p);
           });
