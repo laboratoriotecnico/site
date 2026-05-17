@@ -672,6 +672,14 @@
     </div>
   </section>
 
+  <div id="cookie-banner" style="display:none" role="dialog" aria-label="Preferenze cookie">
+    <p>Utilizziamo cookie di terze parti (PayPal, Google Maps) per la donazione e la mappa interattiva. <a href="privacy.html">Privacy Policy</a></p>
+    <div class="cookie-btns">
+      <button class="cookie-btn-no" onclick="cookieChoice('rejected')">Solo necessari</button>
+      <button class="cookie-btn-ok" onclick="cookieChoice('accepted')">Accetta cookie</button>
+    </div>
+  </div>
+
   <footer>
     <div class="footer-inner" style="flex-direction:column;text-align:center;gap:1.5rem">
       <div style="display:flex;flex-direction:column;gap:.35rem;text-align:center">
@@ -848,14 +856,6 @@
       navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--blue)' : ''; });
     });
   </script>
-
-  <div id="cookie-banner" style="display:none" role="dialog" aria-label="Preferenze cookie">
-    <p>Utilizziamo cookie di terze parti (PayPal, Google Maps) per la donazione e la mappa interattiva. <a href="privacy.html">Privacy Policy</a></p>
-    <div class="cookie-btns">
-      <button class="cookie-btn-no" onclick="cookieChoice('rejected')">Solo necessari</button>
-      <button class="cookie-btn-ok" onclick="cookieChoice('accepted')">Accetta cookie</button>
-    </div>
-  </div>
 
 </body>
 </html>
