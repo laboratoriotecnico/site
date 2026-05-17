@@ -701,10 +701,20 @@
       document.getElementById('cookie-banner').style.display = 'none';
       if (choice === 'accepted') loadThirdParty();
     }
+    function paypalFallback() {
+      const container = document.getElementById('paypal-button-container');
+      if (!container) return;
+      container.innerHTML =
+        '<div style="padding:1rem 1.2rem;background:var(--sky-lt);border-radius:var(--r);border:2px solid var(--sky-mid);text-align:center">' +
+        '<p style="font-size:.88rem;font-weight:700;color:var(--muted);margin:0">Pagamento online momentaneamente non disponibile. ' +
+        'Puoi donare con <strong style="color:var(--dark)">bonifico bancario</strong> (vedi qui sotto) o scrivici a ' +
+        '<a href="mailto:info@laboratoriotecnico.eu" style="color:var(--blue);font-weight:800">info@laboratoriotecnico.eu</a>.</p></div>';
+    }
     function loadThirdParty() {
       const s = document.createElement('script');
       s.src = 'https://www.paypal.com/sdk/js?client-id=AdYELd-9IBTRGEUpQAbPAsTmHeEB_SZlrtUNywuIXNGEMRc-6vdJfcn6yrzRRyzW05O4mM7xnTcV5WpC&currency=EUR&locale=it_IT&intent=capture&enable-funding=card&disable-funding=credit,paylater';
       s.onload = initPayPal;
+      s.onerror = paypalFallback;
       document.head.appendChild(s);
       document.getElementById('paypal-no-consent').style.display = 'none';
       document.getElementById('map-placeholder').innerHTML =
@@ -765,7 +775,7 @@
             container.appendChild(p);
           });
         },
-        onError(err) { console.error('PayPal error:', err); }
+        onError(err) { console.error('PayPal error:', err); paypalFallback(); }
       }).render('#paypal-button-container');
     }
 
@@ -831,19 +841,21 @@
         btn.disabled = false;
       }
     });
-    function copyIBAN() {
-      navigator.clipboard.writeText('IT51R0306909606100000013451').then(() => {
-        const btn = document.querySelector('.btn-copy-iban');
-        btn.textContent = '✅ Copiato!';
-        setTimeout(() => { btn.textContent = '📋 Copia IBAN'; }, 2000);
+    function copyToClipboard(text, selector, okLabel, defaultLabel) {
+      const btn = document.querySelector(selector);
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = okLabel;
+        setTimeout(() => { btn.textContent = defaultLabel; }, 2000);
+      }).catch(() => {
+        btn.textContent = '⚠️ Copia manuale: ' + text;
+        setTimeout(() => { btn.textContent = defaultLabel; }, 4000);
       });
     }
+    function copyIBAN() {
+      copyToClipboard('IT51R0306909606100000013451', '.btn-copy-iban', '✅ Copiato!', '📋 Copia IBAN');
+    }
     function copyCF() {
-      navigator.clipboard.writeText('93026570429').then(() => {
-        const btn = document.querySelector('.btn-copy');
-        btn.textContent = '✅ Copiato!';
-        setTimeout(() => { btn.textContent = '📋 Copia il codice fiscale'; }, 2000);
-      });
+      copyToClipboard('93026570429', '.btn-copy', '✅ Copiato!', '📋 Copia il codice fiscale');
     }
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
