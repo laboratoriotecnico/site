@@ -310,6 +310,15 @@
       .dona-card { padding: 2rem 1.5rem; }
       .sticky-dona { bottom: 16px; right: 16px; padding: 12px 20px; font-size: .9rem; }
     }
+    /* ── COOKIE BANNER ── */
+    #cookie-banner { position:fixed;bottom:0;left:0;right:0;z-index:1001;background:var(--dark);padding:1.2rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;box-shadow:0 -4px 24px rgba(0,0,0,.3); }
+    #cookie-banner p { font-size:.83rem;font-weight:600;color:rgba(255,255,255,.75);margin:0;flex:1;min-width:180px;line-height:1.6; }
+    #cookie-banner a { color:var(--sky); }
+    .cookie-btns { display:flex;gap:.75rem;flex-shrink:0; }
+    .cookie-btn-ok { background:var(--blue);color:#fff;border:none;border-radius:50px;padding:.55rem 1.4rem;font-family:'Nunito',system-ui,sans-serif;font-weight:800;font-size:.88rem;cursor:pointer;transition:background .15s; }
+    .cookie-btn-ok:hover { background:var(--blue-dk); }
+    .cookie-btn-no { background:transparent;color:rgba(255,255,255,.6);border:1.5px solid rgba(255,255,255,.25);border-radius:50px;padding:.55rem 1.2rem;font-family:'Nunito',system-ui,sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:color .15s,border-color .15s; }
+    .cookie-btn-no:hover { color:#fff;border-color:rgba(255,255,255,.5); }
   </style>
 </head>
 <body>
@@ -497,6 +506,10 @@
             onblur="this.style.borderColor='var(--sky-mid)'"
           />
         </div>
+        <div id="paypal-no-consent" style="display:none;padding:1rem 1.2rem;background:var(--sky-lt);border-radius:var(--r);border:2px solid var(--sky-mid);text-align:center;margin-bottom:.5rem">
+          <p style="font-size:.88rem;font-weight:700;color:var(--muted);margin-bottom:.6rem">I pulsanti PayPal richiedono cookie di terze parti.</p>
+          <button onclick="showCookieBanner()" style="background:var(--blue);color:#fff;border:none;cursor:pointer;font-size:.85rem;font-weight:800;padding:.5rem 1.3rem;border-radius:50px;font-family:'Nunito',system-ui,sans-serif">Gestisci preferenze cookie</button>
+        </div>
         <div id="paypal-button-container"></div>
         <p class="dona-note">🔒 Transazione sicura. Puoi donare anche senza un account PayPal.</p>
 
@@ -573,16 +586,14 @@
             <div><p class="contact-k">Codice Fiscale</p><p class="contact-v">93026570429</p></div>
           </div>
         </div>
-        <div style="border-radius:var(--r-lg);overflow:hidden;height:300px;border:2px solid var(--sky-mid)">
-          <iframe
-            title="Sede Associazione Educativa Laboratorio Tecnico ODV"
-            src="https://www.google.com/maps?q=43.6089572,13.5033201&z=13&output=embed"
-            width="100%" height="100%"
-            style="border:0;display:block"
-            allowfullscreen
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+        <div id="map-wrap" style="border-radius:var(--r-lg);overflow:hidden;height:300px;border:2px solid var(--sky-mid)">
+          <div id="map-placeholder" style="height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;text-align:center;padding:1.5rem;background:var(--sky-lt)">
+            <p style="font-size:.9rem;font-weight:700;color:var(--muted);margin:0">La mappa richiede cookie di Google.<br>Accetta i cookie per visualizzarla.</p>
+            <div style="display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center">
+              <button onclick="showCookieBanner()" style="background:var(--blue);color:#fff;border:none;cursor:pointer;font-size:.85rem;font-weight:800;padding:.5rem 1.3rem;border-radius:50px;font-family:'Nunito',system-ui,sans-serif">Accetta cookie</button>
+              <a href="https://www.google.com/maps?q=43.6089572,13.5033201" target="_blank" rel="noopener" style="font-size:.85rem;font-weight:800;color:var(--blue);text-decoration:none;padding:.5rem 1.3rem;border:2px solid var(--blue);border-radius:50px">Apri su Google Maps →</a>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -673,8 +684,97 @@
     </div>
   </footer>
 
-  <script src="https://www.paypal.com/sdk/js?client-id=AdYELd-9IBTRGEUpQAbPAsTmHeEB_SZlrtUNywuIXNGEMRc-6vdJfcn6yrzRRyzW05O4mM7xnTcV5WpC&currency=EUR&locale=it_IT&intent=capture&enable-funding=card&disable-funding=credit,paylater"></script>
   <script>
+    /* ── COOKIE CONSENT ── */
+    const CONSENT_KEY = 'cookie_consent';
+
+    function showCookieBanner() {
+      document.getElementById('cookie-banner').style.display = 'flex';
+    }
+    function cookieChoice(choice) {
+      localStorage.setItem(CONSENT_KEY, choice);
+      document.getElementById('cookie-banner').style.display = 'none';
+      if (choice === 'accepted') loadThirdParty();
+    }
+    function loadThirdParty() {
+      const s = document.createElement('script');
+      s.src = 'https://www.paypal.com/sdk/js?client-id=AdYELd-9IBTRGEUpQAbPAsTmHeEB_SZlrtUNywuIXNGEMRc-6vdJfcn6yrzRRyzW05O4mM7xnTcV5WpC&currency=EUR&locale=it_IT&intent=capture&enable-funding=card&disable-funding=credit,paylater';
+      s.onload = initPayPal;
+      document.head.appendChild(s);
+      document.getElementById('paypal-no-consent').style.display = 'none';
+      document.getElementById('map-placeholder').innerHTML =
+        '<iframe title="Sede Associazione Educativa Laboratorio Tecnico ODV"' +
+        ' src="https://www.google.com/maps?q=43.6089572,13.5033201&z=13&output=embed"' +
+        ' width="100%" height="100%" style="border:0;display:block" allowfullscreen' +
+        ' loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>';
+      document.getElementById('map-placeholder').style.cssText = 'height:100%';
+    }
+    function initPayPal() {
+      paypal.Buttons({
+        createOrder(data, actions) {
+          const cf = document.getElementById('donor-cf').value.trim().toUpperCase();
+          const amount = (currentAmount > 0 ? currentAmount : 25).toFixed(2);
+          const unit = {
+            amount: { value: amount, currency_code: 'EUR' },
+            description: 'Donazione – Laboratorio Tecnico ODV' + (cf ? ' | CF: ' + cf : '')
+          };
+          if (cf) unit.custom_id = cf;
+          return actions.order.create({
+            application_context: { shipping_preference: 'NO_SHIPPING' },
+            purchase_units: [unit]
+          });
+        },
+        onApprove(data, actions) {
+          return actions.order.capture().then(async details => {
+            const firstName = details.payer?.name?.given_name ?? '';
+            const fullName  = ((details.payer?.name?.given_name ?? '') + ' ' + (details.payer?.name?.surname ?? '')).trim();
+            const email     = details.payer?.email_address ?? '';
+            const capture   = details.purchase_units?.[0]?.payments?.captures?.[0];
+            const amount    = capture?.amount?.value ?? currentAmount;
+            const cf        = document.getElementById('donor-cf').value.trim().toUpperCase();
+            const txId      = details.id ?? '';
+            const rawDate   = capture?.create_time ?? new Date().toISOString();
+            const d         = new Date(rawDate);
+            const pad       = n => String(n).padStart(2, '0');
+            const dataStr   = pad(d.getDate()) + pad(d.getMonth() + 1) + d.getFullYear();
+            try {
+              const fd = new FormData();
+              fd.append('_subject', 'Donazione Paypal ricevuta - ' + (fullName || 'Anonimo') + ' - EUR ' + amount);
+              fd.append('Nome donatore', fullName || 'Non disponibile');
+              fd.append('Email', email);
+              fd.append('Data donazione', dataStr);
+              fd.append('Importo donato', 'EUR ' + amount);
+              fd.append('Codice Fiscale', cf || 'Non fornito');
+              fd.append('ID transazione PayPal', txId);
+              await fetch('https://formspree.io/f/xlgvrrbk', {
+                method: 'POST',
+                headers: { 'Accept': 'application/json' },
+                body: fd
+              });
+            } catch {}
+            const container = document.getElementById('paypal-button-container');
+            container.innerHTML = '';
+            const p = document.createElement('p');
+            p.style.cssText = 'color:var(--blue);font-weight:800;font-size:1.05rem;padding:1rem 0';
+            p.textContent = '💙 Grazie' + (firstName ? ' ' + firstName : '') + '! La tua donazione è stata ricevuta.';
+            container.appendChild(p);
+          });
+        },
+        onError(err) { console.error('PayPal error:', err); }
+      }).render('#paypal-button-container');
+    }
+
+    (function() {
+      const consent = localStorage.getItem(CONSENT_KEY);
+      if (consent === 'accepted') {
+        loadThirdParty();
+      } else {
+        document.getElementById('paypal-no-consent').style.display = 'block';
+        if (consent === null) showCookieBanner();
+      }
+    })();
+
+    /* ── APP ── */
     let currentAmount = 25;
 
     function selectAmount(btn, val) {
@@ -740,65 +840,6 @@
         setTimeout(() => { btn.textContent = '📋 Copia il codice fiscale'; }, 2000);
       });
     }
-    if (typeof paypal !== 'undefined') {
-      paypal.Buttons({
-        createOrder(data, actions) {
-          const cf = document.getElementById('donor-cf').value.trim().toUpperCase();
-          const amount = (currentAmount > 0 ? currentAmount : 25).toFixed(2);
-          const unit = {
-            amount: { value: amount, currency_code: 'EUR' },
-            description: 'Donazione – Laboratorio Tecnico ODV' + (cf ? ' | CF: ' + cf : '')
-          };
-          if (cf) unit.custom_id = cf;
-          return actions.order.create({
-            application_context: { shipping_preference: 'NO_SHIPPING' },
-            purchase_units: [unit]
-          });
-        },
-
-
-        onApprove(data, actions) {
-          return actions.order.capture().then(async details => {
-            const firstName = details.payer?.name?.given_name ?? '';
-            const fullName  = ((details.payer?.name?.given_name ?? '') + ' ' + (details.payer?.name?.surname ?? '')).trim();
-            const email     = details.payer?.email_address ?? '';
-            const capture   = details.purchase_units?.[0]?.payments?.captures?.[0];
-            const amount    = capture?.amount?.value ?? currentAmount;
-            const cf        = document.getElementById('donor-cf').value.trim().toUpperCase();
-            const txId      = details.id ?? '';
-            const rawDate   = capture?.create_time ?? new Date().toISOString();
-            const d         = new Date(rawDate);
-            const pad       = n => String(n).padStart(2, '0');
-            const dataStr   = pad(d.getDate()) + pad(d.getMonth() + 1) + d.getFullYear();
-            try {
-              const fd = new FormData();
-              fd.append('_subject', 'Donazione Paypal ricevuta - ' + (fullName || 'Anonimo') + ' - EUR ' + amount);
-              fd.append('Nome donatore', fullName || 'Non disponibile');
-              fd.append('Email', email);
-              fd.append('Data donazione', dataStr);
-              fd.append('Importo donato', 'EUR ' + amount);
-              fd.append('Codice Fiscale', cf || 'Non fornito');
-              fd.append('ID transazione PayPal', txId);
-              await fetch('https://formspree.io/f/xlgvrrbk', {
-                method: 'POST',
-                headers: { 'Accept': 'application/json' },
-                body: fd
-              });
-            } catch {}
-            const container = document.getElementById('paypal-button-container');
-            container.innerHTML = '';
-            const p = document.createElement('p');
-            p.style.cssText = 'color:var(--blue);font-weight:800;font-size:1.05rem;padding:1rem 0';
-            p.textContent = '💙 Grazie' + (firstName ? ' ' + firstName : '') + '! La tua donazione è stata ricevuta.';
-            container.appendChild(p);
-          });
-        },
-        onError(err) {
-          console.error('PayPal error:', err);
-        }
-      }).render('#paypal-button-container');
-    }
-
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
     window.addEventListener('scroll', () => {
@@ -807,6 +848,14 @@
       navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--blue)' : ''; });
     });
   </script>
+
+  <div id="cookie-banner" style="display:none" role="dialog" aria-label="Preferenze cookie">
+    <p>Utilizziamo cookie di terze parti (PayPal, Google Maps) per la donazione e la mappa interattiva. <a href="privacy.html">Privacy Policy</a></p>
+    <div class="cookie-btns">
+      <button class="cookie-btn-no" onclick="cookieChoice('rejected')">Solo necessari</button>
+      <button class="cookie-btn-ok" onclick="cookieChoice('accepted')">Accetta cookie</button>
+    </div>
+  </div>
 
 </body>
 </html>

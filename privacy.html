@@ -23,11 +23,7 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: .9rem 2.5rem; position: sticky; top: 0; z-index: 100;
     }
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .nav-logo-icon { width: 38px; height: 38px; background: var(--blue); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
-    .nav-logo-text { font-size: 1rem; font-weight: 900; color: var(--dark); line-height: 1.1; }
-    .nav-logo-text span { color: var(--blue); }
-    .nav-logo-sub { font-size: .68rem; font-weight: 600; color: var(--muted); }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
     .nav-back { font-size: .85rem; font-weight: 700; color: var(--blue); text-decoration: none; }
     .nav-back:hover { text-decoration: underline; }
 
@@ -65,25 +61,21 @@
     td { padding: .65rem 1rem; border-bottom: 1px solid var(--sky-lt); font-weight: 600; color: var(--muted); }
     tr:nth-child(even) td { background: var(--sky-lt); }
 
-    footer {
-      background: var(--dark); padding: 2rem 2.5rem; margin-top: 4rem;
-      text-align: center;
-    }
-    footer p { font-size: .78rem; font-weight: 600; color: rgba(255,255,255,.45); margin: 0; }
-    footer a { color: rgba(255,255,255,.6); }
+    footer { background: var(--dark); padding: 3rem 2.5rem; margin-top: 4rem; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-direction: column; text-align: center; gap: 1.5rem; }
+    .footer-copy { font-size: .72rem; font-weight: 600; color: rgba(255,255,255,.45); line-height: 1.6; margin: 0; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: .78rem; font-weight: 700; color: rgba(255,255,255,.5); text-decoration: none; }
+    .footer-links a:hover { color: #fff; }
+    .mobile-br { display: none; }
+    @media (max-width:900px) { .mobile-br { display: initial; } .mobile-hide { display: none; } }
   </style>
 </head>
 <body>
 
   <nav>
     <a class="nav-logo" href="index.html">
-      <div class="nav-logo-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-      </div>
-      <div>
-        <div class="nav-logo-text">Laboratorio<span>Tecnico</span></div>
-        <div class="nav-logo-sub">ODV · Ancona</div>
-      </div>
+      <img src="images/logo.svg" alt="Associazione Educativa Laboratorio Tecnico ODV" height="38" style="width:auto;display:block;" />
     </a>
     <a class="nav-back" href="index.html">← Torna al sito</a>
   </nav>
@@ -127,10 +119,18 @@
     <strong>Conservazione:</strong> per il tempo necessario a gestire la comunicazione e comunque non oltre 2 anni.</p>
 
     <h3>2.3 Donazioni tramite PayPal</h3>
-    <p>Il sito contiene un collegamento al servizio <strong>PayPal.me</strong> (PayPal Europe S.à r.l. et Cie, S.C.A., 22-24 Boulevard Royal, L-2449 Lussemburgo). Cliccando il pulsante "Dona con PayPal" l'utente viene reindirizzato al sito di PayPal, che è responsabile del trattamento dei dati relativi alla transazione. Il Titolare non riceve né tratta dati della carta di credito o del conto PayPal del donatore. Per informazioni sul trattamento dei dati da parte di PayPal si rinvia all'<a href="https://www.paypal.com/it/webapps/mpp/ua/privacy-full" target="_blank" rel="noopener">Informativa Privacy di PayPal</a>.</p>
+    <p>Il sito integra il servizio <strong>PayPal JS SDK</strong> (PayPal Europe S.à r.l. et Cie, S.C.A., 22-24 Boulevard Royal, L-2449 Lussemburgo), che visualizza i pulsanti di pagamento direttamente nella pagina. Il Titolare non riceve né tratta dati della carta di credito o del conto PayPal del donatore: tali dati sono gestiti esclusivamente da PayPal, che ne è responsabile del trattamento. Al momento del caricamento della sezione donazioni, PayPal può impostare cookie propri; si rinvia all'<a href="https://www.paypal.com/it/webapps/mpp/ua/privacy-full" target="_blank" rel="noopener">Informativa Privacy di PayPal</a>.</p>
+    <p>A seguito di una donazione completata con successo, il Titolare riceve automaticamente una notifica tramite il servizio Formspree (v. §2.4) contenente: nome, indirizzo email, importo donato, codice fiscale del donatore (se indicato) e identificativo della transazione PayPal. Tali dati sono trattati per la gestione amministrativa e contabile delle donazioni e per l'adempimento degli obblighi fiscali previsti dal D.Lgs. 117/2017.</p>
+    <p><strong>Base giuridica:</strong> consenso dell'interessato (art. 6 par. 1 lett. a GDPR) e obbligo legale (art. 6 par. 1 lett. c GDPR).<br>
+    <strong>Conservazione:</strong> i dati delle donazioni sono conservati per 10 anni in conformità agli obblighi fiscali e contabili.</p>
+
+    <h3>2.4 Form di contatto</h3>
+    <p>Il form di contatto presente nel sito invia i dati inseriti dall'utente tramite il servizio <strong>Formspree</strong> (Formspree Inc., San Francisco, CA, USA). I dati trattati sono: nome, indirizzo email, numero di telefono (facoltativo), oggetto e testo del messaggio. Formspree agisce in qualità di responsabile del trattamento e trasferisce i dati negli USA sulla base delle Standard Contractual Clauses approvate dalla Commissione europea. Per maggiori informazioni: <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">Privacy Policy di Formspree</a>.</p>
+    <p><strong>Base giuridica:</strong> consenso dell'interessato (art. 6 par. 1 lett. a GDPR).<br>
+    <strong>Conservazione:</strong> per il tempo necessario a gestire la richiesta e comunque non oltre 2 anni.</p>
 
     <h2>3. Cookie e tecnologie di tracciamento</h2>
-    <p>Il sito utilizza esclusivamente cookie tecnici necessari al funzionamento. Non utilizza cookie di profilazione o di tracciamento comportamentale propri.</p>
+    <p>Il sito non imposta cookie propri. Si avvale di due servizi di terze parti che possono impostare cookie. Non utilizza Google Analytics, Facebook Pixel o altri strumenti di marketing. I font tipografici sono serviti direttamente dal sito senza dipendenze esterne.</p>
 
     <table>
       <tr>
@@ -140,14 +140,18 @@
         <th>Terza parte</th>
       </tr>
       <tr>
-        <td><strong>Plausible Analytics</strong></td>
+        <td><strong>Cloudflare Web Analytics</strong></td>
         <td>Analitico — senza cookie</td>
-        <td>Statistiche anonime sulle visite al sito (pagine visitate, provenienza, dispositivo). Plausible non installa alcun cookie, non traccia l'utente tra siti diversi e non raccoglie dati personali identificabili. I dati sono aggregati e ospitati in Europa (Estonia, UE).</td>
-        <td>Plausible Analytics OÜ (Estonia, UE)</td>
+        <td>Statistiche anonime sulle visite al sito (URL, tipo dispositivo, paese, browser). Cloudflare non installa cookie, non traccia l'utente tra siti diversi e non raccoglie dati personali identificabili. I dati sono aggregati.</td>
+        <td>Cloudflare, Inc. (USA — Adequacy Decision)</td>
+      </tr>
+      <tr>
+        <td><strong>Google Maps</strong></td>
+        <td>Funzionale — cookie di terze parti</td>
+        <td>Visualizzazione della mappa interattiva della sede. L'embed di Google Maps può impostare cookie propri di Google per il funzionamento del servizio. Per informazioni: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy di Google</a>.</td>
+        <td>Google LLC (USA — Standard Contractual Clauses)</td>
       </tr>
     </table>
-
-    <p>Il sito <strong>non utilizza</strong> cookie di alcun tipo, né propri né di terze parti. Non utilizza Google Analytics, Facebook Pixel o altri strumenti di marketing o profilazione. I font tipografici sono serviti direttamente dal sito senza dipendenze esterne.</p>
 
     <h2>4. Diritti degli interessati</h2>
     <p>Ai sensi degli artt. 15-22 GDPR, l'interessato ha diritto di:</p>
@@ -168,7 +172,15 @@
   </div>
 
   <footer>
-    <p>© 1985–2026 Associazione Educativa Laboratorio Tecnico ODV · C.F. 93026570429 · <a href="index.html">Torna al sito</a></p>
+    <div class="footer-inner">
+      <div style="display:flex;flex-direction:column;gap:.35rem;text-align:center">
+        <p class="footer-copy">© 1985–2026 Associazione Educativa Laboratorio Tecnico ODV<br class="mobile-br"><span class="mobile-hide"> · </span>Via Filippo Marchetti 1, 60125 Ancona (AN) · C.F. 93026570429</p>
+        <p class="footer-copy">Iscritta al Registro Unico Nazionale del Terzo Settore<br class="mobile-br"><span class="mobile-hide"> · </span>Sezione Organizzazioni di Volontariato, repertorio n. 80820 dal 21/11/2022</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">← Torna al sito</a>
+      </div>
+    </div>
   </footer>
 
 </body>
