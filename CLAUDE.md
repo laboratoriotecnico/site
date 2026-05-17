@@ -79,8 +79,8 @@ Ospitato su **GitHub Pages** (account: `laboratoriotecnico`) e raggiungibile su 
 ## Cookie / Privacy
 - **Banner consenso cookie** — `#cookie-banner` (fixed bottom), preferenza salvata in `localStorage` (`cookie_consent`: `'accepted'` | `'rejected'`)
 - **Cloudflare Web Analytics** — nessun cookie, caricato sempre senza consenso
-- **PayPal JS SDK** — caricato dinamicamente solo se `cookie_consent === 'accepted'`; prima del consenso mostra `#paypal-no-consent` con pulsante "Gestisci preferenze"
-- **Google Maps** — iframe iniettato dinamicamente solo se `cookie_consent === 'accepted'`; prima del consenso mostra `#map-placeholder` con link diretto e pulsante consenso
+- **PayPal JS SDK** — caricato dinamicamente solo se `cookie_consent === 'accepted'`; prima del consenso mostra `#paypal-no-consent` con pulsante "Accetta cookie" → chiama `cookieChoice('accepted')` direttamente
+- **Google Maps** — iframe iniettato dinamicamente solo se `cookie_consent === 'accepted'`; prima del consenso mostra `#map-placeholder` con solo pulsante "Accetta cookie" → chiama `cookieChoice('accepted')` direttamente
 - **Nessun cookie di profilazione, nessun pixel pubblicitario**
 - `loadThirdParty()` carica PayPal SDK + mappa; `initPayPal()` inizializza i pulsanti PayPal (chiamata da `script.onload`)
 - Privacy policy su `privacy.html`
