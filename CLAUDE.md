@@ -9,6 +9,7 @@ Ospitato su **GitHub Pages** (account: `laboratoriotecnico`) e raggiungibile su 
 
 ## Stack
 - HTML/CSS/JS puro, nessun framework, nessuna dipendenza npm
+- **Tutto in `index.html`**: CSS nell'unico `<style>` in `<head>`, JS nell'unico `<script>` prima di `</body>`. Lo styling dei singoli elementi è prevalentemente **inline** (`style="..."`); le classi CSS coprono solo i pattern ripetuti. Nessun file `.css`/`.js` esterno — modifiche a stile/script vanno fatte dentro `index.html`
 - Font: **Nunito** caricati localmente da `/fonts/` (5 varianti: Regular, SemiBold, Bold, ExtraBold, Black)
 - Hosting: GitHub Pages (branch `main`, root `/`)
 - DNS: Aruba (4 record A + 4 AAAA GitHub + CNAME www)
@@ -115,11 +116,18 @@ Ospitato su **GitHub Pages** (account: `laboratoriotecnico`) e raggiungibile su 
 ## Note di stile
 - Font: `'Nunito', system-ui, sans-serif` — dichiarato esplicitamente su `body`, `input`, `select`, `textarea`, `button`; non più tramite `var(--font)` negli stili inline
 - Angoli arrotondati ovunque (border-radius 24–40px)
-- Onde SVG tra le sezioni (wave pattern)
+- **Onde SVG tra le sezioni (divisori)**: 5 `<svg class="wave">`. Ognuna ha `style="background:<colore>"` che combacia con la sezione **sopra** (la regione sopra la curva è trasparente e mostra quel colore) e `fill="<colore>"` che combacia con la sezione **sotto**. **Eccezione**: l'onda della hero (subito dopo `.hero-inner`, dentro `#hero`) NON ha `background` perché sopra la curva deve mostrare il gradiente blu del hero — non aggiungerlo. `.wave` ha `margin-bottom: -1px` per coprire la cucitura antialiasata di 1px (causata da `preserveAspectRatio="none"` con altezza frazionaria) — non rimuoverlo. Toccando un'onda, mantieni la coerenza colore con le sezioni adiacenti
 - Pulsante "Dona ora" sticky in basso a destra (sempre visibile, z-index 999)
 - Nessun framework CSS, responsive con media query a 900px
 - Smooth scroll behavior (`scroll-behavior: smooth`)
 - **Mobile footer**: testo copyright va a capo con `<br class="mobile-br">` e il separatore " · " si nasconde con `.mobile-hide`
+
+## JavaScript
+- **Funzioni globali** (richiamate da handler inline `onclick`/`oninput`/`onfocus` nell'HTML — devono restare nello scope globale, non incapsularle in moduli/IIFE): `cookieChoice`, `loadThirdParty`, `initPayPal`, `selectAmount`, `setCustomAmount`, `copyIBAN`, `copyCF`
+- **Stato donazione**: `currentAmount` (var globale, default 25); letta in `createOrder` di `paypal.Buttons()`
+- **Scroll-spy**: evidenzia il link nav della sezione corrente; itera su `section[id]`. `#hero` è un `<div>` (non `<section>`) quindi è **intenzionalmente escluso** — se lo converti in `<section>` aggiungi un `<a href="#hero">` o il primo link resterà evidenziato a inizio pagina. Handler throttlato con `requestAnimationFrame` + listener `{ passive: true }` — mantenere il throttle (`offsetTop` in loop a ogni evento scroll causa reflow forzato)
+- **Form contatti**: l'`_subject` (`#contact-subject`) viene aggiornato dinamicamente dal campo nome via `addEventListener('input')`
+- **clipboard**: `copyIBAN`/`copyCF` usano `navigator.clipboard.writeText(...)` con `.then` senza `.catch` (fallback assente se il permesso è negato — accettabile su HTTPS)
 
 ## Donazioni
 - Integrazione: **PayPal JS SDK** (client-side, no backend)
@@ -130,6 +138,8 @@ Ospitato su **GitHub Pages** (account: `laboratoriotecnico`) e raggiungibile su 
 - JavaScript: `currentAmount` (var globale), `selectAmount()`, `setCustomAmount()` aggiornano `currentAmount`; `paypal.Buttons()` legge `currentAmount` in `createOrder`
 - Campo CF donatore (`#donor-cf`, opzionale): incluso in `description` e `custom_id` dell'ordine PayPal
 - Post-pagamento: notifica automatica via Formspree `https://formspree.io/f/xlgvrrbk` (campi: nome, email, importo, codice_fiscale, transaction_id) + messaggio di ringraziamento inline
+- **Bonifico bancario** (alternativa a PayPal, box nella card Dona): Intesa Sanpaolo · Filiale Accentrata · Piazza Paolo Ferrari 10 — IBAN `IT51R0306909606100000013451` (intestato all'associazione, copiabile con `copyCF`/`copyIBAN`)
+- **Stacking / z-index**: `#paypal-button-container` ha `isolation: isolate` per confinare lo z-index dell'iframe PayPal inline (altrimenti durante lo scroll passa sopra la nav). Ordine z-index: `nav` 1000 < `#cookie-banner` 1001; `.sticky-dona` 999. Il modale di pagamento PayPal è montato su `document.body` (fuori dal container) e resta correttamente sopra tutto.
 - Benefici fiscali ODV: detrazione IRPEF 35% (fino a €30.000) oppure deduzione 10% reddito (max €70.000) — art. 83 D.Lgs. 117/2017
 
 ## Mappa

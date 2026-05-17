@@ -125,7 +125,7 @@
 
     /* ── NAV ── */
     nav {
-      position: sticky; top: 0; z-index: 100;
+      position: sticky; top: 0; z-index: 1000;
       background: var(--white); border-bottom: 2px solid var(--sky-lt);
       display: flex; align-items: center; justify-content: space-between;
       padding: .9rem 2.5rem;
@@ -261,7 +261,7 @@
     .dona-amounts { display: grid; grid-template-columns: repeat(5, 1fr); gap: .7rem; margin-bottom: 2rem; align-items: center; }
     .amount-btn { padding: .7rem .5rem; border: 2px solid var(--sky-mid); border-radius: var(--r); background: transparent; color: var(--blue); font-family: 'Nunito', system-ui, sans-serif; font-size: 1rem; font-weight: 800; cursor: pointer; transition: all .15s; }
     .amount-btn:hover, .amount-btn.active { background: var(--blue); color: #fff; border-color: var(--blue); }
-    #paypal-button-container { margin-bottom: .8rem; }
+    #paypal-button-container { margin-bottom: .8rem; isolation: isolate; }
     .dona-note { font-size: .78rem; font-weight: 600; color: var(--muted); }
 
     /* ── CONTATTI ── */
@@ -295,7 +295,7 @@
     .footer-links a:hover { color: #fff; }
 
     /* ── WAVES ── */
-    .wave { display: block; width: 100%; }
+    .wave { display: block; width: 100%; margin-bottom: -1px; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -847,11 +847,17 @@
     }
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    let scrollTicking = false;
     window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
-      navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--blue)' : ''; });
-    });
+      if (scrollTicking) return;
+      scrollTicking = true;
+      requestAnimationFrame(() => {
+        let current = '';
+        sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+        navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--blue)' : ''; });
+        scrollTicking = false;
+      });
+    }, { passive: true });
   </script>
 
 </body>
