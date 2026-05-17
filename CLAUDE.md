@@ -137,6 +137,7 @@ Ospitato su **GitHub Pages** (account: `laboratoriotecnico`) e raggiungibile su 
 - Client ID live: `AdYELd-9IBTRGEUpQAbPAsTmHeEB_SZlrtUNywuIXNGEMRc-6vdJfcn6yrzRRyzW05O4mM7xnTcV5WpC`
 - SDK URL: `https://www.paypal.com/sdk/js?client-id=...&currency=EUR&locale=it_IT&intent=capture&enable-funding=card&disable-funding=credit,paylater`
 - Mostra due pulsanti: PayPal + Carta di credito/debito (`enable-funding=card`)
+- `paypal.Buttons()` usa `style: { label: 'donate' }` → con `locale=it_IT` il pulsante mostra "Dona" (non "Paga")
 - Importi preset: €10, €25, €50, €100 + input custom (€1–€9999)
 - JavaScript: `currentAmount` (var globale), `selectAmount()`, `setCustomAmount()` aggiornano `currentAmount`; `paypal.Buttons()` legge `currentAmount` in `createOrder`
 - Campo CF donatore (`#donor-cf`, opzionale): incluso in `description` e `custom_id` dell'ordine PayPal

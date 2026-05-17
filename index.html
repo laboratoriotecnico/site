@@ -781,6 +781,7 @@
     }
     function initPayPal() {
       paypal.Buttons({
+        style: { label: 'donate' },
         createOrder(data, actions) {
           const cf = document.getElementById('donor-cf').value.trim().toUpperCase();
           const amount = (currentAmount > 0 ? currentAmount : 25).toFixed(2);
