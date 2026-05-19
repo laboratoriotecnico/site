@@ -26,6 +26,7 @@ Ospitato su **GitHub Pages** (account: `laboratoriotecnico`) e raggiungibile su 
   - `apple-touch-icon.png` — icona PNG 180×180 (per iOS)
   - `logo.svg` — logo orizzontale (usato nel nav)
 - `/fonts/` — directory con font Nunito (5 varianti TTF)
+- `sitemap.xml` — sitemap (2 URL: `/` priority 1.0, `/privacy.html` priority 0.3). **Aggiorna SEMPRE il `<lastmod>` alla data odierna per ogni pagina modificata** (formato `YYYY-MM-DD`) a ogni modifica del progetto
 - `CNAME` — dominio personalizzato (`laboratoriotecnico.eu`)
 - `.gitignore` — esclude `.idea/` e file IntelliJ
 
