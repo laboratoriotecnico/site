@@ -2,10 +2,11 @@
 
 ## Istruzioni per Claude
 - **CLAUDE.md deve essere sempre aggiornato.** Dopo ogni modifica al progetto (struttura file, stack, comportamenti, convenzioni), aggiorna immediatamente le sezioni pertinenti di questo file.
+- **README.md deve essere sempre aggiornato.** Dopo ogni modifica al progetto (struttura file, stack, sviluppo locale, deploy, convenzioni), aggiorna immediatamente le sezioni pertinenti di `README.md`.
 
 ## Contesto progetto
 Sito statico istituzionale dell'Associazione Educativa Laboratorio Tecnico ODV di Ancona.
-Ospitato su **GitHub Pages** (account: `laboratoriotecnico`) e raggiungibile su **laboratoriotecnico.eu**.
+Ospitato su **GitHub Pages** (account: `laboratorio-tecnico`) e raggiungibile su **laboratoriotecnico.eu**.
 
 ## Stack
 - HTML/CSS/JS puro, nessun framework, nessuna dipendenza npm
@@ -28,6 +29,8 @@ Ospitato su **GitHub Pages** (account: `laboratoriotecnico`) e raggiungibile su 
 - `/fonts/` — directory con font Nunito (5 varianti TTF)
 - `sitemap.xml` — sitemap (2 URL: `/` priority 1.0, `/privacy.html` priority 0.3). **Aggiorna SEMPRE il `<lastmod>` alla data odierna per ogni pagina modificata** (formato `YYYY-MM-DD`) a ogni modifica del progetto
 - `CNAME` — dominio personalizzato (`laboratoriotecnico.eu`)
+- `robots.txt` — direttive crawler (`Allow: /`) + riferimento alla sitemap
+- `README.md` — documentazione introduttiva del progetto (overview, stack, struttura, sviluppo locale, deploy, convenzioni)
 - `.gitignore` — esclude `.idea/` e file IntelliJ
 
 ## Identità associazione
@@ -66,7 +69,7 @@ Ospitato su **GitHub Pages** (account: `laboratoriotecnico`) e raggiungibile su 
 ## DNS (Aruba)
 - 4 record **A** `@` → IP GitHub Pages (185.199.108-111.153)
 - 4 record **AAAA** `@` → IP GitHub Pages IPv6 (2606:50c0:8000-8003::153)
-- **CNAME** `www` → `laboratoriotecnico.github.io`
+- **CNAME** `www` → `laboratorio-tecnico.github.io`
 - Record MX, TXT, CNAME mail (admin, autoconfig, ftp, imap) lasciati invariati
 
 
